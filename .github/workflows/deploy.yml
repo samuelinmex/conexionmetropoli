@@ -36,13 +36,13 @@ jobs:
       - name: Ensure project screenshots are published
         run: |
           mkdir -p dist/assets
-          cp -f public/assets/fasttrack-story.webp dist/assets/fasttrack-story.webp
-          cp -f public/assets/miarmario-story.webp dist/assets/miarmario-story.webp
-          test -s dist/assets/fasttrack-story.webp
-          test -s dist/assets/miarmario-story.webp
+          cp -f public/assets/fasttrack-story.png dist/assets/fasttrack-story.png
+          cp -f public/assets/miarmario-story.png dist/assets/miarmario-story.png
+          test -s dist/assets/fasttrack-story.png
+          test -s dist/assets/miarmario-story.png
           echo "Project screenshots included in Pages artifact:"
-          ls -lh dist/assets/fasttrack-story.webp dist/assets/miarmario-story.webp
-          file dist/assets/fasttrack-story.webp dist/assets/miarmario-story.webp
+          ls -lh dist/assets/fasttrack-story.png dist/assets/miarmario-story.png
+          file dist/assets/fasttrack-story.png dist/assets/miarmario-story.png
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
