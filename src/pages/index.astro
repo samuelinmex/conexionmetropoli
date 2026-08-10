@@ -1,6 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Interactions from '../components/Interactions.astro';
+import { readFileSync } from 'node:fs';
+
+const fastTrackShot = readFileSync(new URL('../../public/assets/fasttrack-story.jpg.b64', import.meta.url), 'utf8').trim();
+const miArmarioShot = readFileSync(new URL('../../public/assets/miarmario-story.webp.b64', import.meta.url), 'utf8').trim();
 ---
 <Layout>
   <Interactions />
@@ -51,73 +55,67 @@ import Interactions from '../components/Interactions.astro';
     </div>
   </section>
 
-  <section class="section stories-showcase" id="historias">
-    <div class="container">
-      <div class="stories-head" data-reveal>
-        <div>
-          <span class="eyebrow">Historias que acompañamos</span>
-          <h2>Cuando una página deja de ser escaparate y empieza a resolver necesidades reales.</h2>
-          <p class="lead">Dos marcas cancunenses lideradas por mujeres emprendedoras. Dos maneras distintas de usar la tecnología para acercarse mejor a sus clientes.</p>
-        </div>
-        <a class="button button-ghost" href="/proyectos">Conocer las historias</a>
+  <section class="stories-showcase" id="historias">
+    <div class="container stories-intro" data-reveal>
+      <div>
+        <span class="eyebrow">Historias que acompañamos</span>
+        <h2>Trabajo real. Negocios reales. Experiencias pensadas para moverlos hacia adelante.</h2>
+        <p class="lead">Dos marcas cancunenses lideradas por mujeres emprendedoras y dos formas distintas de convertir una página en una herramienta para conectar con sus clientes.</p>
+      </div>
+      <a class="button button-ghost" href="/proyectos">Conocer las historias</a>
+    </div>
+
+    <div class="impact-carousel" data-story-carousel aria-roledescription="carrusel" aria-label="Historias de clientes de Conexión Metrópoli" tabindex="0">
+      <div class="impact-stage" aria-live="polite">
+        <article class="impact-slide is-active" data-story-slide aria-hidden="false">
+          <img class="impact-image" src={`data:image/jpeg;base64,${fastTrackShot}`} alt="Página de inicio de Fast Track English Coach" />
+          <div class="impact-shade"></div>
+          <div class="impact-topline">
+            <div class="impact-domain"><i></i><i></i><i></i><span>fasttrackenglishcoach.com</span></div>
+            <span class="impact-project">Proyecto real · Cancún</span>
+          </div>
+          <div class="container impact-content-wrap">
+            <div class="impact-copy">
+              <span class="impact-kicker">Educación · Experiencia + evaluación</span>
+              <h3>Fast Track<br/>English Coach</h3>
+              <p>Una página que ayuda a cada alumno a dar el primer paso con más claridad y confianza.</p>
+              <div class="impact-detail"><strong>La idea clave</strong><span>Integrar una evaluación en línea para convertir el sitio en parte del proceso de orientación, no solo en publicidad.</span></div>
+              <a class="impact-cta" href="/proyectos#fast-track">Conocer esta historia <span>↗</span></a>
+            </div>
+          </div>
+          <span class="impact-index">01 <small>/ 02</small></span>
+        </article>
+
+        <article class="impact-slide" data-story-slide aria-hidden="true">
+          <img class="impact-image" src={`data:image/webp;base64,${miArmarioShot}`} alt="Página de inicio de la tienda en línea Mi Armario Cancún" />
+          <div class="impact-shade"></div>
+          <div class="impact-topline">
+            <div class="impact-domain"><i></i><i></i><i></i><span>miarmariocancun.com</span></div>
+            <span class="impact-project">Proyecto real · Cancún</span>
+          </div>
+          <div class="container impact-content-wrap">
+            <div class="impact-copy">
+              <span class="impact-kicker">Moda · E-commerce</span>
+              <h3>Mi Armario<br/>Cancún</h3>
+              <p>Una tienda digital para que una colección completa pueda descubrirse más allá de una sola publicación.</p>
+              <div class="impact-detail"><strong>La idea clave</strong><span>Extender el escaparate de la marca a una experiencia de compra disponible desde cualquier lugar y dispositivo.</span></div>
+              <a class="impact-cta" href="/proyectos#mi-armario">Conocer esta historia <span>↗</span></a>
+            </div>
+          </div>
+          <span class="impact-index">02 <small>/ 02</small></span>
+        </article>
       </div>
 
-      <div class="story-carousel" data-story-carousel data-reveal aria-roledescription="carrusel" aria-label="Historias de clientes de Conexión Metrópoli">
-        <div class="story-carousel-stage" aria-live="polite">
-          <article class="story-slide is-active" data-story-slide aria-hidden="false">
-            <div class="story-slide-visual">
-              <div class="real-browser">
-                <div class="real-browser-bar"><div class="browser-dots"><i></i><i></i><i></i></div><span>fasttrackenglishcoach.com</span><b>Proyecto real · Cancún</b></div>
-                <div class="real-browser-screen">
-                  <img class="story-shot" data-b64-src="/assets/fasttrack-story.jpg.b64?v=3" data-mime="image/jpeg" alt="Página de inicio de Fast Track English Coach" />
-                  <div class="shot-loader" aria-hidden="true"><span></span></div>
-                </div>
-              </div>
-            </div>
-            <div class="story-slide-copy">
-              <div class="slide-index"><span>01</span><small>/ 02</small></div>
-              <span class="story-kicker">Educación · Experiencia + evaluación</span>
-              <h3>Fast Track English Coach</h3>
-              <p class="story-quote">Una página que ayuda al alumno a dar el primer paso antes de llegar a clase.</p>
-              <p>Propusimos integrar una evaluación de inglés en línea para que cada futuro alumno pueda conocer una referencia de su nivel y llegar con mayor confianza a recibir orientación sobre el curso más adecuado.</p>
-              <div class="story-outcome"><span>La idea clave</span><strong>Convertir el sitio en parte del proceso de orientación, no solo en publicidad.</strong></div>
-              <a class="story-cta" href="/proyectos#fast-track">Conocer la historia completa <span>↗</span></a>
-            </div>
-          </article>
-
-          <article class="story-slide" data-story-slide aria-hidden="true">
-            <div class="story-slide-visual">
-              <div class="real-browser">
-                <div class="real-browser-bar"><div class="browser-dots"><i></i><i></i><i></i></div><span>miarmariocancun.com</span><b>Proyecto real · Cancún</b></div>
-                <div class="real-browser-screen">
-                  <img class="story-shot" data-b64-src="/assets/miarmario-story.webp.b64?v=3" data-mime="image/webp" alt="Página de inicio de la tienda en línea Mi Armario Cancún" />
-                  <div class="shot-loader" aria-hidden="true"><span></span></div>
-                </div>
-              </div>
-            </div>
-            <div class="story-slide-copy">
-              <div class="slide-index"><span>02</span><small>/ 02</small></div>
-              <span class="story-kicker">Moda · E-commerce</span>
-              <h3>Mi Armario Cancún</h3>
-              <p class="story-quote">Una tienda digital para que una colección completa pueda descubrirse más allá de una publicación.</p>
-              <p>Construimos una tienda en línea para convertir la variedad de trajes de baño, vestidos y accesorios de la marca en un catálogo visual que sus clientas pueden explorar desde cualquier lugar y dispositivo.</p>
-              <div class="story-outcome"><span>La idea clave</span><strong>Extender el escaparate de la marca a una experiencia de compra disponible en cualquier momento.</strong></div>
-              <a class="story-cta" href="/proyectos#mi-armario">Conocer la historia completa <span>↗</span></a>
-            </div>
-          </article>
+      <div class="impact-controls container" aria-label="Controles del carrusel">
+        <div class="impact-arrows">
+          <button type="button" data-carousel-prev aria-label="Historia anterior">←</button>
+          <button type="button" data-carousel-next aria-label="Historia siguiente">→</button>
         </div>
-
-        <div class="carousel-controls" aria-label="Controles del carrusel">
-          <div class="carousel-nav">
-            <button class="carousel-arrow" type="button" data-carousel-prev aria-label="Historia anterior">←</button>
-            <button class="carousel-arrow" type="button" data-carousel-next aria-label="Historia siguiente">→</button>
-          </div>
-          <div class="carousel-progress" aria-label="Seleccionar historia">
-            <button class="carousel-dot is-active" type="button" data-carousel-dot="0" aria-label="Ver Fast Track English Coach" aria-current="true"><span></span></button>
-            <button class="carousel-dot" type="button" data-carousel-dot="1" aria-label="Ver Mi Armario Cancún"><span></span></button>
-          </div>
-          <span class="carousel-hint">También puedes deslizar</span>
+        <div class="impact-progress">
+          <button class="is-active" type="button" data-carousel-dot="0" aria-label="Ver Fast Track English Coach" aria-current="true"><span></span></button>
+          <button type="button" data-carousel-dot="1" aria-label="Ver Mi Armario Cancún"><span></span></button>
         </div>
+        <span class="impact-hint">Desliza o usa las flechas</span>
       </div>
     </div>
   </section>
@@ -128,64 +126,36 @@ import Interactions from '../components/Interactions.astro';
 </Layout>
 
 <style>
-  .stories-showcase{background:linear-gradient(180deg,#edf2f8 0%,#f4f7fb 100%);overflow:hidden}
-  .stories-head{display:grid;grid-template-columns:1fr auto;gap:45px;align-items:end;margin-bottom:46px}
-  .stories-head h2{max-width:880px;margin:8px 0 22px}
-  .stories-head .lead{max-width:760px;margin:0}
-  .story-carousel{position:relative}
-  .story-carousel-stage{position:relative;min-height:610px}
-  .story-slide{position:absolute;inset:0;display:grid;grid-template-columns:minmax(0,1.16fr) minmax(330px,.84fr);background:rgba(255,255,255,.96);border:1px solid rgba(203,215,231,.9);border-radius:34px;overflow:hidden;box-shadow:0 34px 90px rgba(7,23,47,.11);opacity:0;visibility:hidden;pointer-events:none;transform:translateX(26px) scale(.988);transition:opacity .58s cubic-bezier(.22,1,.36,1),transform .68s cubic-bezier(.22,1,.36,1),visibility .58s}
-  .story-slide.is-active{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(0) scale(1);z-index:2}
-  .story-slide-visual{padding:30px;background:radial-gradient(circle at 22% 15%,rgba(22,111,255,.18),transparent 34%),linear-gradient(145deg,#d9e6f6,#edf3fa);display:flex;align-items:center}
-  .real-browser{width:100%;border:1px solid rgba(255,255,255,.9);border-radius:22px;overflow:hidden;background:#fff;box-shadow:0 26px 55px rgba(7,23,47,.17);transform:perspective(1300px) rotateY(1.4deg) rotateX(.5deg);transition:transform .7s cubic-bezier(.22,1,.36,1)}
-  .story-slide.is-active .real-browser{transform:perspective(1300px) rotateY(0) rotateX(0)}
-  .real-browser-bar{height:43px;padding:0 14px;display:grid;grid-template-columns:auto 1fr auto;gap:13px;align-items:center;border-bottom:1px solid #e6ebf2;color:#708098;font-size:.72rem;background:#fbfcfe}
-  .real-browser-bar>b{font-size:.65rem;text-transform:uppercase;letter-spacing:.09em;color:#236ce2}
-  .browser-dots{display:flex;gap:5px}.browser-dots i{width:7px;height:7px;border-radius:50%;background:#b8c5d6}
-  .real-browser-screen{position:relative;aspect-ratio:1.78/1;background:linear-gradient(115deg,#e5edf7,#f7f9fc);overflow:hidden}
-  .story-shot{position:relative;z-index:2;width:100%;height:100%;display:block;object-fit:cover;object-position:top center;opacity:0;transform:scale(1.025);transition:opacity .45s ease,transform 1.1s cubic-bezier(.22,1,.36,1)}
-  .story-shot.is-loaded{opacity:1;transform:scale(1)}
-  .shot-loader{position:absolute;inset:0;display:grid;place-items:center;z-index:1}.shot-loader span{width:30px;height:30px;border:2px solid #c9d7e9;border-top-color:#166fff;border-radius:50%;animation:shot-spin .8s linear infinite}
-  .story-shot.is-loaded+.shot-loader{opacity:0;transition:opacity .25s;pointer-events:none}
-  @keyframes shot-spin{to{transform:rotate(360deg)}}
-  .story-slide-copy{padding:clamp(35px,4vw,58px);display:flex;flex-direction:column;justify-content:center;position:relative}
-  .slide-index{position:absolute;top:28px;right:34px;display:flex;align-items:baseline;gap:5px;color:#9aa9bc}.slide-index span{font-size:1.25rem;font-weight:850;color:#0d213c}.slide-index small{font-size:.72rem}
-  .story-kicker{color:#166fff;font-size:.72rem;font-weight:850;letter-spacing:.13em;text-transform:uppercase}
-  .story-slide-copy h3{font-size:clamp(2.4rem,4.1vw,4rem);letter-spacing:-.05em;margin:10px 0 18px;line-height:.95}
-  .story-quote{font-size:clamp(1.12rem,1.5vw,1.35rem);font-weight:700;color:#263d5d;line-height:1.42;margin-bottom:18px}
-  .story-slide-copy>p:not(.story-quote){color:var(--muted);font-size:.98rem}
-  .story-outcome{margin:14px 0 26px;padding:18px 19px;border-left:3px solid var(--blue);background:#f2f6fb;border-radius:0 14px 14px 0}.story-outcome span{display:block;font-size:.67rem;font-weight:850;color:var(--blue);text-transform:uppercase;letter-spacing:.11em;margin-bottom:5px}.story-outcome strong{font-size:.9rem;line-height:1.45;color:#183250}
-  .story-cta{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;font-weight:800;color:#0a54ce}.story-cta span{transition:transform .2s}.story-cta:hover span{transform:translate(3px,-2px)}
-  .carousel-controls{display:flex;align-items:center;gap:18px;margin-top:25px;padding:0 5px}
-  .carousel-nav{display:flex;gap:8px}.carousel-arrow{width:48px;height:48px;border-radius:50%;border:1px solid #cdd8e7;background:rgba(255,255,255,.8);color:#10213a;font-size:1.2rem;cursor:pointer;transition:transform .2s,border-color .2s,background .2s,box-shadow .2s}.carousel-arrow:hover{background:#fff;border-color:#99b7df;transform:translateY(-2px);box-shadow:0 9px 22px rgba(7,23,47,.09)}
-  .carousel-progress{display:flex;gap:7px;align-items:center}.carousel-dot{border:0;background:transparent;padding:8px 2px;cursor:pointer}.carousel-dot span{display:block;width:28px;height:3px;border-radius:4px;background:#bdcadb;transition:width .35s,background .35s}.carousel-dot.is-active span{width:58px;background:#166fff}.carousel-hint{margin-left:auto;color:#8090a6;font-size:.76rem}
-  @media(max-width:960px){.stories-head{grid-template-columns:1fr}.stories-head .button{justify-self:start}.story-carousel-stage{min-height:780px}.story-slide{grid-template-columns:1fr;grid-template-rows:auto 1fr}.story-slide-visual{padding:22px}.story-slide-copy{padding:34px 30px 40px}.real-browser-screen{aspect-ratio:1.8/1}}
-  @media(max-width:620px){.story-carousel-stage{min-height:750px}.story-slide{border-radius:24px}.story-slide-visual{padding:13px}.real-browser{border-radius:15px}.real-browser-bar{height:35px;grid-template-columns:auto 1fr;padding:0 10px}.real-browser-bar>b{display:none}.story-slide-copy{padding:28px 22px 34px}.slide-index{top:19px;right:20px}.story-slide-copy h3{font-size:2.35rem;padding-right:45px}.story-quote{font-size:1.03rem}.carousel-hint{display:none}.carousel-controls{justify-content:space-between}.carousel-dot.is-active span{width:42px}}
-  @media(prefers-reduced-motion:reduce){.story-slide,.real-browser,.story-shot,.carousel-dot span{transition:none!important}.shot-loader span{animation:none}}
+  .stories-showcase{padding:92px 0 0;background:linear-gradient(180deg,#edf2f8 0%,#f5f8fc 100%);overflow:hidden}
+  .stories-intro{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:42px;align-items:end;padding-bottom:50px}
+  .stories-intro h2{max-width:930px;margin:9px 0 19px}.stories-intro .lead{max-width:790px;margin:0}
+  .impact-carousel{position:relative;width:100vw;margin-left:calc(50% - 50vw);outline:none;background:#071327;overflow:hidden}
+  .impact-stage{position:relative;height:clamp(620px,72vh,820px)}
+  .impact-slide{position:absolute;inset:0;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .62s cubic-bezier(.22,1,.36,1),visibility .62s;overflow:hidden;background:#071327}
+  .impact-slide.is-active{opacity:1;visibility:visible;pointer-events:auto;z-index:2}
+  .impact-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;transform:scale(1.055);filter:saturate(.93) contrast(1.02);transition:transform 7s cubic-bezier(.2,.65,.2,1),filter .6s ease}
+  .impact-slide.is-active .impact-image{transform:scale(1.005);filter:saturate(1) contrast(1.03)}
+  .impact-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,13,30,.90) 0%,rgba(3,13,30,.72) 28%,rgba(3,13,30,.28) 58%,rgba(3,13,30,.04) 78%),linear-gradient(0deg,rgba(3,13,30,.63) 0%,transparent 43%);z-index:1}
+  .impact-topline{position:absolute;top:0;left:0;right:0;height:56px;padding:0 clamp(22px,4vw,70px);display:flex;align-items:center;justify-content:space-between;z-index:3;color:rgba(255,255,255,.72);font-size:.72rem;border-bottom:1px solid rgba(255,255,255,.13);background:linear-gradient(180deg,rgba(4,14,31,.42),rgba(4,14,31,.06));backdrop-filter:blur(8px)}
+  .impact-domain{display:flex;align-items:center;gap:7px}.impact-domain i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.42)}.impact-domain span{margin-left:7px}.impact-project{text-transform:uppercase;letter-spacing:.13em;font-weight:850;color:#fff}
+  .impact-content-wrap{position:relative;height:100%;z-index:3;display:flex;align-items:flex-end;padding-top:100px;padding-bottom:82px}
+  .impact-copy{width:min(700px,72vw);color:#fff;transform:translateY(22px);opacity:0;transition:transform .65s .12s cubic-bezier(.22,1,.36,1),opacity .5s .12s ease}
+  .impact-slide.is-active .impact-copy{transform:translateY(0);opacity:1}
+  .impact-kicker{display:block;color:#67a2ff;font-size:.72rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase;margin-bottom:13px}
+  .impact-copy h3{font-size:clamp(3.6rem,7.8vw,7.5rem);line-height:.84;letter-spacing:-.065em;margin:0 0 22px;color:#fff;text-wrap:balance;text-shadow:0 12px 45px rgba(0,0,0,.28)}
+  .impact-copy>p{font-size:clamp(1.08rem,1.6vw,1.34rem);line-height:1.5;color:rgba(255,255,255,.88);max-width:630px;margin:0 0 22px}
+  .impact-detail{display:grid;grid-template-columns:auto minmax(0,1fr);gap:15px;align-items:start;max-width:660px;padding:15px 18px;border:1px solid rgba(255,255,255,.17);border-radius:16px;background:rgba(7,23,47,.42);backdrop-filter:blur(15px);margin-bottom:23px}.impact-detail strong{font-size:.66rem;color:#74aaff;text-transform:uppercase;letter-spacing:.11em;padding-top:3px}.impact-detail span{font-size:.88rem;line-height:1.45;color:rgba(255,255,255,.92);font-weight:650}
+  .impact-cta{display:inline-flex;align-items:center;gap:11px;padding:13px 18px;border-radius:999px;background:#fff;color:#07172f;font-size:.88rem;font-weight:850;box-shadow:0 14px 35px rgba(0,0,0,.18);transition:transform .2s,box-shadow .2s}.impact-cta:hover{transform:translateY(-2px);box-shadow:0 17px 40px rgba(0,0,0,.25)}.impact-cta span{color:#166fff}
+  .impact-index{position:absolute;right:clamp(23px,4vw,70px);bottom:80px;z-index:3;color:#fff;font-size:1.45rem;font-weight:900;letter-spacing:-.02em}.impact-index small{font-size:.72rem;color:rgba(255,255,255,.55);font-weight:650}
+  .impact-controls{height:74px;display:flex;align-items:center;gap:20px;position:relative;z-index:5;color:#fff}
+  .impact-arrows{display:flex;gap:8px}.impact-arrows button{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:#fff;font-size:1.05rem;cursor:pointer;transition:.2s}.impact-arrows button:hover{background:#fff;color:#07172f;transform:translateY(-2px)}
+  .impact-progress{display:flex;gap:7px}.impact-progress button{padding:9px 2px;border:0;background:transparent;cursor:pointer}.impact-progress span{display:block;width:35px;height:3px;border-radius:99px;background:rgba(255,255,255,.24);transition:width .35s,background .35s}.impact-progress button.is-active span{width:76px;background:#3d8cff}.impact-hint{margin-left:auto;color:rgba(255,255,255,.5);font-size:.72rem}
+  @media(max-width:900px){.stories-intro{grid-template-columns:1fr}.stories-intro .button{justify-self:start}.impact-stage{height:700px}.impact-shade{background:linear-gradient(0deg,rgba(3,13,30,.92) 0%,rgba(3,13,30,.72) 45%,rgba(3,13,30,.12) 78%)}.impact-content-wrap{align-items:flex-end;padding-bottom:55px}.impact-copy{width:100%}.impact-copy h3{font-size:clamp(3.3rem,12vw,6rem)}.impact-index{bottom:55px}.impact-detail{max-width:600px}}
+  @media(max-width:620px){.stories-showcase{padding-top:68px}.stories-intro{padding-bottom:35px}.impact-stage{height:660px}.impact-topline{height:48px;padding:0 16px}.impact-project{display:none}.impact-domain span{font-size:.66rem}.impact-content-wrap{padding:80px 20px 38px}.impact-copy h3{font-size:3.35rem}.impact-copy>p{font-size:1rem}.impact-detail{grid-template-columns:1fr;gap:5px;padding:13px 14px}.impact-index{top:66px;right:18px;bottom:auto}.impact-controls{height:66px;padding-left:20px;padding-right:20px}.impact-hint{display:none}.impact-progress button.is-active span{width:52px}.impact-image{object-position:top center}}
+  @media(prefers-reduced-motion:reduce){.impact-slide,.impact-image,.impact-copy,.impact-progress span{transition:none!important}}
 </style>
 
 <script>
-  const hydrateStoryImages = async () => {
-    const images = [...document.querySelectorAll('[data-b64-src]')];
-    await Promise.all(images.map(async (image) => {
-      if (!(image instanceof HTMLImageElement) || image.dataset.hydrated === 'true') return;
-      try {
-        const response = await fetch(image.dataset.b64Src || '', { cache: 'force-cache' });
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        const base64 = (await response.text()).trim();
-        if (!base64) throw new Error('Imagen vacía');
-        image.src = `data:${image.dataset.mime || 'image/webp'};base64,${base64}`;
-        image.dataset.hydrated = 'true';
-        if (image.complete) image.classList.add('is-loaded');
-        else image.addEventListener('load', () => image.classList.add('is-loaded'), { once: true });
-      } catch (error) {
-        console.error('No se pudo cargar la captura del proyecto', error);
-      }
-    }));
-  };
-
-  hydrateStoryImages();
-
   const carousel = document.querySelector('[data-story-carousel]');
   if (carousel instanceof HTMLElement) {
     const slides = [...carousel.querySelectorAll('[data-story-slide]')];
@@ -216,7 +186,7 @@ import Interactions from '../components/Interactions.astro';
     const stop = () => { if (timer) window.clearInterval(timer); };
     const start = () => {
       stop();
-      if (!reducedMotion && !paused) timer = window.setInterval(() => show(current + 1), 5800);
+      if (!reducedMotion && !paused) timer = window.setInterval(() => show(current + 1), 6500);
     };
     const move = (delta) => { show(current + delta); start(); };
 
