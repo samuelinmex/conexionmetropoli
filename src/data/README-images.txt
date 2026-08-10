@@ -1,0 +1,1 @@
+Project screenshots are being migrated to direct public assets.
