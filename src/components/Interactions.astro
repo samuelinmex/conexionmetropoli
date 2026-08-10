@@ -1,0 +1,174 @@
+<div class="cm-pointer-ring" aria-hidden="true"></div>
+
+<style is:global>
+  /* Fast, elegant page fade: opacity only, no sliding or blocking loaders. */
+  body {
+    animation: cm-page-fade-in .18s ease-out both;
+  }
+
+  body.cm-page-leaving {
+    animation: none !important;
+    opacity: 0;
+    transition: opacity .12s ease-in !important;
+  }
+
+  @keyframes cm-page-fade-in {
+    from { opacity: .18; }
+    to { opacity: 1; }
+  }
+
+  /* Override the previous SVG cursor implementation. Keep the native cursor reliable. */
+  @media (pointer:fine) {
+    a[href], button, [role="button"], .project-card {
+      cursor: pointer !important;
+    }
+
+    .cm-pointer-ring {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 25px;
+      height: 25px;
+      border: 1.5px solid rgba(22,111,255,.68);
+      border-radius: 999px;
+      background: rgba(22,111,255,.025);
+      box-shadow: 0 0 0 1px rgba(255,255,255,.36), 0 3px 16px rgba(22,111,255,.08);
+      pointer-events: none;
+      z-index: 10000;
+      opacity: 0;
+      transform: translate(-50%,-50%);
+      transition: width .15s cubic-bezier(.22,1,.36,1), height .15s cubic-bezier(.22,1,.36,1), opacity .12s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
+      will-change: left, top, width, height;
+    }
+
+    .cm-pointer-ring.is-interactive {
+      width: 34px;
+      height: 34px;
+      opacity: .92;
+      border-color: rgba(22,111,255,.82);
+      background: rgba(22,111,255,.055);
+      box-shadow: 0 0 0 4px rgba(22,111,255,.035), 0 4px 18px rgba(22,111,255,.10);
+    }
+
+    .cm-pointer-ring.is-down {
+      width: 23px;
+      height: 23px;
+      background: rgba(22,111,255,.14);
+      border-color: rgba(22,111,255,.95);
+    }
+
+    .cm-click-ripple {
+      position: fixed;
+      width: 12px;
+      height: 12px;
+      border: 1.5px solid rgba(22,111,255,.76);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%,-50%) scale(.55);
+      opacity: .82;
+      animation: cm-pointer-ripple .36s cubic-bezier(.16,1,.3,1) forwards;
+    }
+
+    @keyframes cm-pointer-ripple {
+      to {
+        width: 54px;
+        height: 54px;
+        opacity: 0;
+        transform: translate(-50%,-50%) scale(1);
+      }
+    }
+  }
+
+  @media (pointer:coarse) {
+    .cm-pointer-ring { display:none !important; }
+  }
+
+  @media (prefers-reduced-motion:reduce) {
+    body { animation:none !important; }
+    body.cm-page-leaving { opacity:1 !important; transition:none !important; }
+    .cm-pointer-ring,.cm-click-ripple { display:none !important; }
+  }
+</style>
+
+<script>
+  const finePointer = window.matchMedia('(pointer:fine)');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion:reduce)');
+  const ring = document.querySelector('.cm-pointer-ring');
+
+  if (finePointer.matches && ring instanceof HTMLElement) {
+    let targetX = -100;
+    let targetY = -100;
+    let currentX = -100;
+    let currentY = -100;
+    let visible = false;
+
+    const interactiveSelector = 'a[href],button,[role="button"],.project-card';
+
+    const animateRing = () => {
+      currentX += (targetX - currentX) * .34;
+      currentY += (targetY - currentY) * .34;
+      ring.style.left = `${currentX}px`;
+      ring.style.top = `${currentY}px`;
+      requestAnimationFrame(animateRing);
+    };
+    requestAnimationFrame(animateRing);
+
+    document.addEventListener('pointermove', (event) => {
+      targetX = event.clientX;
+      targetY = event.clientY;
+      if (!visible) {
+        currentX = targetX;
+        currentY = targetY;
+        visible = true;
+      }
+      const target = event.target instanceof Element ? event.target.closest(interactiveSelector) : null;
+      ring.classList.toggle('is-interactive', Boolean(target));
+    }, { passive:true });
+
+    document.addEventListener('pointerdown', (event) => {
+      const target = event.target instanceof Element ? event.target.closest(interactiveSelector) : null;
+      if (!target) return;
+
+      ring.classList.add('is-down');
+      const ripple = document.createElement('span');
+      ripple.className = 'cm-click-ripple';
+      ripple.style.left = `${event.clientX}px`;
+      ripple.style.top = `${event.clientY}px`;
+      document.body.appendChild(ripple);
+      window.setTimeout(() => ripple.remove(), 420);
+    }, { passive:true });
+
+    const release = () => ring.classList.remove('is-down');
+    document.addEventListener('pointerup', release, { passive:true });
+    document.addEventListener('pointercancel', release, { passive:true });
+    document.documentElement.addEventListener('mouseleave', () => ring.classList.remove('is-interactive'));
+  }
+
+  /* Internal navigation only: 120 ms fade-out, then normal navigation. */
+  document.addEventListener('click', (event) => {
+    if (event.defaultPrevented || reducedMotion.matches) return;
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+
+    const target = event.target instanceof Element ? event.target.closest('a[href]') : null;
+    if (!(target instanceof HTMLAnchorElement)) return;
+    if (target.target === '_blank' || target.hasAttribute('download')) return;
+
+    const rawHref = target.getAttribute('href');
+    if (!rawHref || rawHref.startsWith('#') || rawHref.startsWith('mailto:') || rawHref.startsWith('tel:')) return;
+
+    const destination = new URL(target.href, window.location.href);
+    if (destination.origin !== window.location.origin) return;
+    if (destination.pathname === window.location.pathname && destination.search === window.location.search) return;
+
+    event.preventDefault();
+    document.body.classList.add('cm-page-leaving');
+    window.setTimeout(() => {
+      window.location.href = destination.href;
+    }, 120);
+  });
+
+  window.addEventListener('pageshow', () => {
+    document.body.classList.remove('cm-page-leaving');
+  });
+</script>
