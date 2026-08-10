@@ -1,144 +1,212 @@
-/* Conexión Metrópoli — split editorial/project carousel.
-   Desktop deliberately removes the screenshot from behind the copy zone.
-   The project image begins on the right and a soft blue transition joins both areas. */
+/* Conexión Metrópoli — enforced split carousel.
+   Higher-specificity selectors intentionally override the original !important
+   carousel rules, even when the component stylesheet is emitted later. */
 
-.stories-showcase .impact-slide {
+/* Desktop: a real editorial panel on the left, screenshot only on the right. */
+html body .stories-showcase .impact-slide {
   background:
     linear-gradient(90deg,
       #031329 0%,
-      #042657 25%,
-      #06418e 42%,
-      #0a64cb 52%,
-      #1178ec 58%,
-      #0b4f9f 61%,
+      #042451 27%,
+      #06418c 43%,
+      #0961c5 52%,
+      #0d73e4 56%,
+      #071c3b 60%,
       #04142d 64%,
       #04142d 100%) !important;
 }
 
-/* The screenshot no longer exists underneath the editorial copy. */
-.stories-showcase .impact-image {
-  clip-path: inset(0 0 0 51%) !important;
+html body .stories-showcase .impact-image {
+  /* Critical: no screenshot pixels exist behind the editorial copy. */
+  clip-path: inset(0 0 0 52%) !important;
+  object-position: top right !important;
+  filter: saturate(.98) contrast(1.02) brightness(.98) !important;
+}
+
+html body .stories-showcase .impact-slide.is-active .impact-image {
+  clip-path: inset(0 0 0 52%) !important;
   object-position: top right !important;
 }
 
-/* This layer only softens the seam between panel and screenshot. */
-.stories-showcase .impact-shade {
+/* Only blend the physical seam where the image begins. */
+html body .stories-showcase .impact-shade {
   background:
     linear-gradient(90deg,
       rgba(3,19,41,1) 0%,
-      rgba(4,38,87,1) 34%,
-      rgba(6,65,142,1) 47%,
-      rgba(10,100,203,1) 54%,
-      rgba(17,120,236,.98) 58%,
-      rgba(30,132,247,.82) 61%,
-      rgba(42,139,255,.48) 64%,
-      rgba(42,139,255,.18) 67%,
-      rgba(42,139,255,0) 71%) !important;
+      rgba(4,36,81,1) 35%,
+      rgba(6,65,140,1) 47%,
+      rgba(9,97,197,1) 52%,
+      rgba(13,115,228,.96) 55%,
+      rgba(25,128,242,.72) 58%,
+      rgba(38,137,253,.36) 61%,
+      rgba(42,139,255,.12) 64%,
+      rgba(42,139,255,0) 67%) !important;
 }
 
-.stories-showcase .impact-shade::before {
+html body .stories-showcase .impact-shade::before {
   content: '';
   position: absolute;
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(ellipse at 55% 50%, rgba(93,168,255,.22), transparent 21%),
-    linear-gradient(180deg, rgba(1,9,24,.10), transparent 28%, transparent 76%, rgba(1,9,24,.14));
+    radial-gradient(ellipse at 54% 50%, rgba(99,173,255,.20), transparent 18%),
+    linear-gradient(180deg, rgba(0,8,24,.08), transparent 28%, transparent 76%, rgba(0,8,24,.13));
 }
 
-/* Keep every editorial element inside the clean left panel. */
-.stories-showcase .impact-content-wrap {
+/* Domain + project label now live together inside the clean editorial side. */
+html body .stories-showcase .impact-topline {
+  left: clamp(24px,3vw,58px) !important;
+  right: auto !important;
+  width: min(610px, 42vw) !important;
+  justify-content: flex-start !important;
+  flex-wrap: wrap !important;
+  gap: 9px !important;
+}
+
+html body .stories-showcase .impact-domain,
+html body .stories-showcase .impact-project {
+  background: rgba(255,255,255,.94) !important;
+  color: #07172f !important;
+  border-color: rgba(255,255,255,.82) !important;
+  box-shadow: 0 10px 28px rgba(0,12,35,.14) !important;
+}
+
+/* All case-study copy stays fully inside the opaque panel. */
+html body .stories-showcase .impact-content-wrap {
   justify-content: flex-start !important;
 }
 
-.stories-showcase .impact-copy {
-  width: min(575px, 38vw) !important;
-  max-width: 575px !important;
+html body .stories-showcase .impact-copy {
+  width: min(560px, 36vw) !important;
+  max-width: 560px !important;
 }
 
-/* Keep the domain and project badge visually associated with the split layout. */
-.stories-showcase .impact-topline {
-  left: clamp(24px,3vw,58px) !important;
-  right: clamp(24px,3vw,58px) !important;
+html body .stories-showcase .impact-copy h3 {
+  max-width: 540px !important;
+  font-size: clamp(3.25rem,5vw,6rem) !important;
+  line-height: .88 !important;
 }
 
-/* Slightly reinforce copy contrast without creating another card. */
-.stories-showcase .impact-copy h3,
-.stories-showcase .impact-copy > p,
-.stories-showcase .impact-detail,
-.stories-showcase .impact-kicker {
-  text-shadow: 0 2px 18px rgba(0,13,38,.18) !important;
+html body .stories-showcase .impact-copy > p {
+  max-width: 500px !important;
+  color: rgba(255,255,255,.92) !important;
+}
+
+html body .stories-showcase .impact-detail {
+  max-width: 535px !important;
+  background: rgba(1,16,39,.44) !important;
+  border-color: rgba(255,255,255,.22) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+/* Counter remains readable over the screenshot. */
+html body .stories-showcase .impact-index {
+  background: rgba(3,19,41,.88) !important;
+  border-color: rgba(255,255,255,.24) !important;
+  box-shadow: 0 10px 28px rgba(0,12,35,.18) !important;
 }
 
 @media (max-width: 1400px) {
-  .stories-showcase .impact-image {
-    clip-path: inset(0 0 0 53%) !important;
+  html body .stories-showcase .impact-image,
+  html body .stories-showcase .impact-slide.is-active .impact-image {
+    clip-path: inset(0 0 0 54%) !important;
   }
 
-  .stories-showcase .impact-shade {
+  html body .stories-showcase .impact-shade {
     background:
       linear-gradient(90deg,
-        rgba(3,19,41,1) 0%,
-        rgba(5,44,99,1) 39%,
-        rgba(8,78,166,1) 51%,
-        rgba(16,112,224,.99) 58%,
-        rgba(28,129,244,.80) 63%,
-        rgba(39,137,253,.40) 68%,
-        rgba(42,139,255,.12) 72%,
-        rgba(42,139,255,0) 76%) !important;
+        #031329 0%,
+        #042451 36%,
+        #06418c 49%,
+        rgba(9,97,197,.98) 54%,
+        rgba(18,121,235,.80) 58%,
+        rgba(34,135,250,.40) 62%,
+        rgba(42,139,255,.12) 66%,
+        rgba(42,139,255,0) 69%) !important;
   }
 
-  .stories-showcase .impact-copy {
-    width: min(545px, 41vw) !important;
+  html body .stories-showcase .impact-topline {
+    width: min(550px,43vw) !important;
+  }
+
+  html body .stories-showcase .impact-copy {
+    width: min(520px,40vw) !important;
   }
 }
 
-@media (max-width: 1000px) {
-  .stories-showcase .impact-image {
+@media (max-width: 980px) {
+  html body .stories-showcase .impact-image,
+  html body .stories-showcase .impact-slide.is-active .impact-image {
     clip-path: inset(0 0 0 58%) !important;
-    object-position: 70% top !important;
   }
 
-  .stories-showcase .impact-shade {
+  html body .stories-showcase .impact-shade {
     background:
       linear-gradient(90deg,
-        rgba(3,19,41,1) 0%,
-        rgba(5,44,99,1) 44%,
-        rgba(8,78,166,.99) 56%,
-        rgba(16,112,224,.96) 64%,
-        rgba(31,132,247,.64) 72%,
-        rgba(42,139,255,.18) 79%,
-        rgba(42,139,255,0) 84%) !important;
+        #031329 0%,
+        #052b61 43%,
+        #0750aa 56%,
+        rgba(15,105,211,.94) 62%,
+        rgba(28,127,243,.58) 69%,
+        rgba(39,138,255,.18) 76%,
+        rgba(39,138,255,0) 81%) !important;
   }
 
-  .stories-showcase .impact-copy {
-    width: min(520px, 52vw) !important;
+  html body .stories-showcase .impact-copy {
+    width: min(500px,52vw) !important;
+  }
+
+  html body .stories-showcase .impact-topline {
+    width: min(520px,55vw) !important;
   }
 }
 
-/* On phones there is not enough horizontal room for a true split, so use
-   a strong overlay instead while preserving text readability. */
+/* Mobile switches to a vertical split: screenshot above, editorial copy below. */
 @media (max-width: 700px) {
-  .stories-showcase .impact-image {
-    clip-path: none !important;
-    object-position: 62% top !important;
+  html body .stories-showcase .impact-image,
+  html body .stories-showcase .impact-slide.is-active .impact-image {
+    clip-path: inset(0 0 46% 0) !important;
+    object-position: top center !important;
   }
 
-  .stories-showcase .impact-slide {
-    background: #031329 !important;
-  }
-
-  .stories-showcase .impact-shade {
+  html body .stories-showcase .impact-shade {
     background:
-      linear-gradient(90deg,
-        rgba(3,19,41,.995) 0%,
-        rgba(5,43,96,.98) 52%,
-        rgba(9,82,174,.92) 76%,
-        rgba(20,115,229,.76) 100%) !important;
+      linear-gradient(180deg,
+        rgba(3,19,41,.08) 0%,
+        rgba(3,19,41,.16) 36%,
+        rgba(5,40,91,.72) 47%,
+        #063a82 56%,
+        #042451 68%,
+        #031329 100%) !important;
   }
 
-  .stories-showcase .impact-copy {
+  html body .stories-showcase .impact-topline {
+    left: 14px !important;
+    right: 14px !important;
+    width: auto !important;
+  }
+
+  html body .stories-showcase .impact-project {
+    display: inline-flex !important;
+  }
+
+  html body .stories-showcase .impact-content-wrap {
+    align-items: flex-end !important;
+    padding: 72px 20px 44px !important;
+  }
+
+  html body .stories-showcase .impact-copy {
     width: 100% !important;
     max-width: none !important;
+  }
+
+  html body .stories-showcase .impact-copy h3 {
+    max-width: 100% !important;
+    font-size: clamp(2.8rem,12vw,4.3rem) !important;
+  }
+
+  html body .stories-showcase .impact-copy > p,
+  html body .stories-showcase .impact-detail {
+    max-width: 100% !important;
   }
 }
