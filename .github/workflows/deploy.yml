@@ -37,12 +37,12 @@ jobs:
         run: |
           mkdir -p dist/assets
           cp -f public/assets/fasttrack-story.png dist/assets/fasttrack-story.png
-          cp -f public/assets/miarmario-story.png dist/assets/miarmario-story.png
+          cp -f public/assets/miarmario-story-v2.png dist/assets/miarmario-story-v2.png
           test -s dist/assets/fasttrack-story.png
-          test -s dist/assets/miarmario-story.png
+          test -s dist/assets/miarmario-story-v2.png
           echo "Project screenshots included in Pages artifact:"
-          ls -lh dist/assets/fasttrack-story.png dist/assets/miarmario-story.png
-          file dist/assets/fasttrack-story.png dist/assets/miarmario-story.png
+          ls -lh dist/assets/fasttrack-story.png dist/assets/miarmario-story-v2.png
+          file dist/assets/fasttrack-story.png dist/assets/miarmario-story-v2.png
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
