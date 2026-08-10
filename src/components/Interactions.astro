@@ -87,12 +87,221 @@
     body.cm-page-leaving { opacity:1 !important; transition:none !important; }
     .cm-pointer-ring,.cm-click-ripple { display:none !important; }
   }
+
+  /* Project carousel: make the real work the visual hero, not the overlay copy. */
+  .stories-showcase .impact-carousel {
+    background: #071327 !important;
+    box-shadow: 0 34px 90px rgba(6, 23, 48, .16) !important;
+  }
+
+  .stories-showcase .impact-stage {
+    height: clamp(700px, 56vw, 980px) !important;
+    background: #071327 !important;
+  }
+
+  .stories-showcase .impact-slide {
+    background: #071327 !important;
+  }
+
+  .stories-showcase .impact-image {
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: top center !important;
+    transform: scale(1.012) !important;
+    filter: none !important;
+    transition: transform 6.5s cubic-bezier(.2,.65,.2,1), opacity .55s ease !important;
+  }
+
+  .stories-showcase .impact-slide.is-active .impact-image {
+    transform: scale(1) !important;
+    filter: none !important;
+  }
+
+  .stories-showcase .impact-shade {
+    background:
+      linear-gradient(0deg, rgba(3,13,30,.48) 0%, rgba(3,13,30,.17) 25%, rgba(3,13,30,0) 48%),
+      linear-gradient(90deg, rgba(3,13,30,.12) 0%, rgba(3,13,30,0) 34%) !important;
+  }
+
+  .stories-showcase .impact-topline {
+    top: 22px !important;
+    left: clamp(20px,3vw,52px) !important;
+    right: clamp(20px,3vw,52px) !important;
+    height: auto !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    color: #07172f !important;
+    align-items: flex-start !important;
+  }
+
+  .stories-showcase .impact-domain,
+  .stories-showcase .impact-project {
+    padding: 10px 14px !important;
+    border-radius: 999px !important;
+    background: rgba(255,255,255,.88) !important;
+    border: 1px solid rgba(255,255,255,.7) !important;
+    box-shadow: 0 10px 30px rgba(7,23,47,.12) !important;
+    backdrop-filter: blur(16px) !important;
+    color: #07172f !important;
+  }
+
+  .stories-showcase .impact-domain i {
+    background: #a9b9cd !important;
+  }
+
+  .stories-showcase .impact-project {
+    color: #07172f !important;
+    font-size: .66rem !important;
+  }
+
+  .stories-showcase .impact-content-wrap {
+    height: 100% !important;
+    padding-top: 100px !important;
+    padding-bottom: 34px !important;
+    align-items: flex-end !important;
+  }
+
+  .stories-showcase .impact-copy {
+    width: min(530px, calc(100vw - 48px)) !important;
+    padding: 24px 26px 23px !important;
+    border-radius: 24px !important;
+    background: rgba(5,18,38,.84) !important;
+    border: 1px solid rgba(255,255,255,.18) !important;
+    box-shadow: 0 24px 70px rgba(0,0,0,.28) !important;
+    backdrop-filter: blur(20px) saturate(120%) !important;
+    color: #fff !important;
+    transform: translateY(14px) !important;
+  }
+
+  .stories-showcase .impact-slide.is-active .impact-copy {
+    transform: translateY(0) !important;
+  }
+
+  .stories-showcase .impact-kicker {
+    margin-bottom: 9px !important;
+    font-size: .66rem !important;
+    color: #79aaff !important;
+  }
+
+  .stories-showcase .impact-copy h3 {
+    margin: 0 0 12px !important;
+    font-size: clamp(2.2rem, 3.5vw, 3.55rem) !important;
+    line-height: .94 !important;
+    letter-spacing: -.045em !important;
+    text-shadow: none !important;
+  }
+
+  .stories-showcase .impact-copy > p {
+    margin: 0 0 14px !important;
+    max-width: 470px !important;
+    font-size: .96rem !important;
+    line-height: 1.5 !important;
+    color: rgba(255,255,255,.82) !important;
+  }
+
+  .stories-showcase .impact-detail {
+    display: block !important;
+    margin: 0 0 16px !important;
+    padding: 12px 14px !important;
+    border-radius: 14px !important;
+    background: rgba(255,255,255,.07) !important;
+    border-color: rgba(255,255,255,.11) !important;
+  }
+
+  .stories-showcase .impact-detail strong {
+    display: block !important;
+    margin-bottom: 4px !important;
+    color: #79aaff !important;
+  }
+
+  .stories-showcase .impact-detail span {
+    font-size: .82rem !important;
+    line-height: 1.42 !important;
+    color: rgba(255,255,255,.9) !important;
+  }
+
+  .stories-showcase .impact-cta {
+    padding: 11px 16px !important;
+    font-size: .82rem !important;
+  }
+
+  .stories-showcase .impact-index {
+    right: clamp(22px,3vw,52px) !important;
+    bottom: 28px !important;
+    padding: 9px 12px !important;
+    border-radius: 999px !important;
+    background: rgba(5,18,38,.72) !important;
+    border: 1px solid rgba(255,255,255,.16) !important;
+    backdrop-filter: blur(14px) !important;
+    font-size: 1rem !important;
+  }
+
+  .stories-showcase .impact-controls {
+    height: 68px !important;
+    background: #071327 !important;
+  }
+
+  @media (max-width: 900px) {
+    .stories-showcase .impact-stage {
+      height: 760px !important;
+    }
+    .stories-showcase .impact-image {
+      object-position: top center !important;
+    }
+    .stories-showcase .impact-copy {
+      width: min(500px, calc(100vw - 40px)) !important;
+      padding: 21px 22px !important;
+    }
+    .stories-showcase .impact-copy h3 {
+      font-size: clamp(2.2rem, 8vw, 3.4rem) !important;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .stories-showcase .impact-stage {
+      height: 700px !important;
+    }
+    .stories-showcase .impact-topline {
+      top: 14px !important;
+      left: 14px !important;
+      right: 14px !important;
+    }
+    .stories-showcase .impact-domain {
+      padding: 8px 10px !important;
+    }
+    .stories-showcase .impact-content-wrap {
+      padding: 70px 16px 18px !important;
+    }
+    .stories-showcase .impact-copy {
+      width: 100% !important;
+      padding: 18px !important;
+      border-radius: 20px !important;
+    }
+    .stories-showcase .impact-copy h3 {
+      font-size: 2.35rem !important;
+    }
+    .stories-showcase .impact-copy > p {
+      font-size: .9rem !important;
+    }
+    .stories-showcase .impact-detail {
+      display: none !important;
+    }
+    .stories-showcase .impact-index {
+      top: 64px !important;
+      bottom: auto !important;
+      right: 14px !important;
+    }
+  }
 </style>
 
 <script>
   const PROJECT_IMAGES = {
-    fastTrack: '/assets/fasttrack-story.png?v=7',
-    miArmario: '/assets/miarmario-story.png?v=7'
+    fastTrack: '/assets/fasttrack-story.png?v=8',
+    miArmario: '/assets/miarmario-story.png?v=8'
   };
 
   const repairProjectImages = () => {
