@@ -9,6 +9,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  actions: read
 
 concurrency:
   group: pages
@@ -18,14 +19,39 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout your repository
-        uses: actions/checkout@v7
-      - name: Install, build, and upload Astro site
-        uses: withastro/action@v6
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
         with:
           node-version: 22
-          package-manager: npm
-          build-cmd: npm run build
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Astro site
+        run: npm run build
+
+      - name: Ensure project screenshots are published
+        run: |
+          mkdir -p dist/assets
+          cp -f public/assets/fasttrack-story.webp dist/assets/fasttrack-story.webp
+          cp -f public/assets/miarmario-story.webp dist/assets/miarmario-story.webp
+          test -s dist/assets/fasttrack-story.webp
+          test -s dist/assets/miarmario-story.webp
+          echo "Project screenshots included in Pages artifact:"
+          ls -lh dist/assets/fasttrack-story.webp dist/assets/miarmario-story.webp
+          file dist/assets/fasttrack-story.webp dist/assets/miarmario-story.webp
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
 
   deploy:
     needs: build
@@ -36,4 +62,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v5
+        uses: actions/deploy-pages@v4
