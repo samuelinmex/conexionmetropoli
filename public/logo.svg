@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 250" role="img" aria-labelledby="title desc">
+  <title id="title">Conexión Metrópoli</title>
+  <desc id="desc">Logotipo CM con globo y arquitectura urbana, acompañado del nombre Conexión Metrópoli.</desc>
+  <defs>
+    <mask id="mCut">
+      <rect width="100%" height="100%" fill="white"/>
+      <path d="M267 216V181h13v-22l17-18 17 18v57h14v-43l15 15v28z" fill="black"/>
+    </mask>
+  </defs>
+
+  <!-- C: bloque redondeado con apertura lateral -->
+  <path d="M174 38H78C46 38 25 59 25 91v68c0 32 21 53 53 53h96v-39H88c-15 0-24-9-24-24V101c0-15 9-24 24-24h86z" fill="#07172F"/>
+
+  <!-- Globo -->
+  <circle cx="111" cy="125" r="48" fill="none" stroke="#0A6FFF" stroke-width="9"/>
+  <path d="M63 125h96M111 77c16 14 24 30 24 48s-8 34-24 48M111 77c-16 14-24 30-24 48s8 34 24 48M72 99h78M72 151h78" fill="none" stroke="#0A6FFF" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- M arquitectónica -->
+  <path d="M203 212V75c0-24 14-37 38-37h112c24 0 38 13 38 37v137h-42V93l-52 48-52-48v119z" fill="#07172F" mask="url(#mCut)"/>
+
+  <!-- Wordmark -->
+  <g font-family="Inter, Arial, Helvetica, sans-serif" font-weight="800">
+    <text x="445" y="118" font-size="72" letter-spacing="8" fill="#07172F">CONEXIÓN</text>
+    <text x="447" y="192" font-size="58" letter-spacing="15" fill="#0A6FFF">METRÓPOLI</text>
+  </g>
+</svg>
