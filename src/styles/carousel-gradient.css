@@ -1,0 +1,65 @@
+/* Conexión Metrópoli — carousel text/readability override.
+   The left side intentionally covers the screenshot text so our case-study copy
+   remains readable, while the right side stays visually open. */
+
+.stories-showcase .impact-shade {
+  background:
+    linear-gradient(90deg,
+      rgba(3,15,35,1) 0%,
+      rgba(4,24,55,1) 20%,
+      rgba(6,43,96,.995) 40%,
+      rgba(10,72,157,.96) 54%,
+      rgba(24,105,216,.86) 64%,
+      rgba(40,130,255,.58) 73%,
+      rgba(48,139,255,.28) 80%,
+      rgba(45,135,255,.09) 86%,
+      rgba(45,135,255,0) 92%) !important;
+}
+
+/* A soft vertical wash makes the transition feel intentional rather than a hard mask. */
+.stories-showcase .impact-shade::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 51% 48%, rgba(52,137,255,.22), transparent 31%),
+    linear-gradient(180deg, rgba(2,12,29,.12), transparent 30%, transparent 72%, rgba(2,12,29,.18));
+}
+
+/* Keep the copy completely inside the protected opaque portion of the gradient. */
+.stories-showcase .impact-copy {
+  width: min(590px, 38vw) !important;
+}
+
+@media (max-width: 1200px) {
+  .stories-showcase .impact-shade {
+    background:
+      linear-gradient(90deg,
+        rgba(3,15,35,1) 0%,
+        rgba(5,30,69,1) 28%,
+        rgba(8,58,127,.98) 48%,
+        rgba(18,91,191,.90) 62%,
+        rgba(35,122,244,.62) 75%,
+        rgba(42,132,255,.20) 87%,
+        rgba(42,132,255,0) 96%) !important;
+  }
+  .stories-showcase .impact-copy {
+    width: min(560px, 46vw) !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .stories-showcase .impact-shade {
+    background:
+      linear-gradient(90deg,
+        rgba(3,15,35,1) 0%,
+        rgba(5,32,73,.99) 45%,
+        rgba(12,70,151,.94) 70%,
+        rgba(25,108,224,.72) 88%,
+        rgba(35,126,250,.48) 100%) !important;
+  }
+  .stories-showcase .impact-copy {
+    width: 100% !important;
+  }
+}
