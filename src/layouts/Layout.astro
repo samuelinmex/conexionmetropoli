@@ -26,14 +26,7 @@ const nav = [
     <div class="noise" aria-hidden="true"></div>
     <header class="site-header" id="top">
       <a class="brand" href="/" aria-label="Conexión Metrópoli, inicio">
-        <svg class="brand-mark" viewBox="0 0 160 72" aria-hidden="true">
-          <rect x="2" y="2" width="72" height="68" rx="18" fill="currentColor"/>
-          <circle cx="36" cy="36" r="23" fill="#fff"/>
-          <path d="M14 36h44M36 13c8 7 12 15 12 23S44 52 36 59M36 13c-8 7-12 15-12 23s4 16 12 23M18 23h36M18 49h36" fill="none" stroke="#166fff" stroke-width="4" stroke-linecap="round"/>
-          <path d="M82 70V2h76v68h-17V28l-21 18-21-18v42H82Z" fill="currentColor"/>
-          <path d="M107 70V54h9V42h9v28h9V58h9v12" fill="#fff"/>
-        </svg>
-        <span class="brand-type"><b>CONEXIÓN</b><small>METRÓPOLI</small></span>
+        <img src="/logo.svg" alt="Conexión Metrópoli" width="1000" height="250" style="display:block;width:220px;max-width:46vw;height:auto" />
       </a>
       <nav class="desktop-nav" aria-label="Principal">
         {nav.map(([label,href]) => <a href={href}>{label}</a>)}
@@ -48,8 +41,8 @@ const nav = [
     <main><slot /></main>
     <footer class="site-footer">
       <div>
-        <a class="brand footer-brand" href="/">
-          <span class="brand-type"><b>CONEXIÓN</b><small>METRÓPOLI</small></span>
+        <a class="brand footer-brand" href="/" aria-label="Conexión Metrópoli, inicio">
+          <img src="/logo.svg" alt="Conexión Metrópoli" width="1000" height="250" style="display:block;width:240px;max-width:100%;height:auto" />
         </a>
         <p>Construimos presencia digital que se siente profesional desde el primer vistazo.</p>
       </div>
