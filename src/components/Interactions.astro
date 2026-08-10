@@ -92,6 +92,27 @@
 </style>
 
 <script>
+  /* Project screenshots: force direct, cache-busted public assets instead of old inline base64 sources. */
+  const repairProjectImages = () => {
+    document.querySelectorAll('img').forEach((img) => {
+      if (!(img instanceof HTMLImageElement)) return;
+      const alt = (img.alt || '').toLowerCase();
+      const current = img.getAttribute('src') || '';
+      const isFastTrack = alt.includes('fast track english coach') || current.includes('fasttrack-story');
+      const isMiArmario = alt.includes('mi armario cancún') || alt.includes('mi armario cancun') || current.includes('miarmario-story');
+      if (isFastTrack) {
+        img.src = '/assets/fasttrack-story.webp?v=2';
+        img.removeAttribute('srcset');
+      } else if (isMiArmario) {
+        img.src = '/assets/miarmario-story.webp?v=2';
+        img.removeAttribute('srcset');
+      }
+    });
+  };
+  repairProjectImages();
+  document.addEventListener('DOMContentLoaded', repairProjectImages, { once:true });
+  window.addEventListener('pageshow', repairProjectImages);
+
   const finePointer = window.matchMedia('(pointer:fine)');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion:reduce)');
   const ring = document.querySelector('.cm-pointer-ring');
