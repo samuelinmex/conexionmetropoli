@@ -1,0 +1,45 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Contacto — Conexión Metrópoli" description="Solicita información o una cotización para tu sitio web con Conexión Metrópoli.">
+  <section class="section">
+    <div class="container contact-layout">
+      <div>
+        <span class="eyebrow">Contacto</span>
+        <h1>Cuéntanos qué quieres construir.</h1>
+        <p class="lead">Descríbenos tu negocio, qué necesitas y qué te gustaría lograr con tu sitio. Te responderemos con una propuesta acorde al alcance.</p>
+        <div class="contact-points">
+          <div><strong>Landing Esencial</strong><br><span style="color:var(--muted)">Desde $2,000 MXN · 3 secciones</span></div>
+          <div><strong>Sitios corporativos</strong><br><span style="color:var(--muted)">Cotización según páginas, contenido y funcionalidades</span></div>
+          <div><strong>Atención personalizada</strong><br><span style="color:var(--muted)">Acompañamiento durante estructura, diseño y publicación</span></div>
+        </div>
+      </div>
+      <div class="contact-card" data-reveal>
+        <form id="quote-form">
+          <div class="form-grid">
+            <div class="field"><label for="name">Nombre</label><input id="name" name="name" required autocomplete="name" /></div>
+            <div class="field"><label for="business">Negocio / marca</label><input id="business" name="business" autocomplete="organization" /></div>
+            <div class="field"><label for="email">Correo</label><input id="email" name="email" type="email" required autocomplete="email" /></div>
+            <div class="field"><label for="phone">Teléfono / WhatsApp</label><input id="phone" name="phone" autocomplete="tel" /></div>
+            <div class="field full"><label for="service">¿Qué necesitas?</label><select id="service" name="service"><option>Landing Esencial — desde $2,000 MXN</option><option>Sitio corporativo multipágina</option><option>Rediseño de sitio existente</option><option>Identidad digital + sitio web</option><option>Otro / aún no estoy seguro</option></select></div>
+            <div class="field full"><label for="message">Cuéntanos sobre tu proyecto</label><textarea id="message" name="message" required placeholder="¿Qué hace tu negocio? ¿Qué te gustaría que lograra tu nueva página?"></textarea></div>
+            <div class="field full"><button class="button button-blue" type="submit">Solicitar información →</button></div>
+          </div>
+          <p id="form-status" aria-live="polite" style="margin:16px 0 0;color:var(--muted);font-size:.9rem">Al enviar se abrirá tu aplicación de correo con la solicitud preparada.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+  <script>
+    const form = document.querySelector('#quote-form');
+    form?.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const data = new FormData(form);
+      const subject = encodeURIComponent(`Cotización web — ${data.get('business') || data.get('name')}`);
+      const body = encodeURIComponent(`Nombre: ${data.get('name')}\nNegocio: ${data.get('business')}\nCorreo: ${data.get('email')}\nTeléfono: ${data.get('phone')}\nServicio: ${data.get('service')}\n\nProyecto:\n${data.get('message')}`);
+      window.location.href = `mailto:cotizaciones@conexionmetropoli.com?subject=${subject}&body=${body}`;
+      const status = document.querySelector('#form-status');
+      if (status) status.textContent = 'Solicitud preparada. Si tu correo no se abrió, escríbenos directamente a cotizaciones@conexionmetropoli.com.';
+    });
+  </script>
+</Layout>
