@@ -26,63 +26,63 @@ const carouselGradient = {
             .site-header .desktop-nav a,
             .site-header .mobile-nav > a:not(.button) {
               position: relative;
-              transition: color .22s ease, background .22s ease, box-shadow .22s ease, transform .22s ease;
+              transition: color .22s ease, opacity .22s ease;
             }
 
+            /* El estado activo NO altera padding, gap, ancho, alto ni peso tipográfico. */
             .site-header .desktop-nav a.cm-nav-current {
-              display: inline-flex;
-              align-items: center;
-              gap: 8px;
-              padding: 8px 13px;
-              border-radius: 999px;
               color: #0b63ef !important;
-              background: linear-gradient(135deg, rgba(22,111,255,.11), rgba(22,111,255,.045));
-              box-shadow: inset 0 0 0 1px rgba(22,111,255,.16), 0 8px 22px rgba(22,111,255,.08);
-              font-weight: 750;
+              isolation: isolate;
             }
 
             .site-header .desktop-nav a.cm-nav-current::before {
               content: '';
-              width: 5px;
-              height: 5px;
-              flex: 0 0 5px;
+              position: absolute;
+              z-index: -1;
+              left: -11px;
+              right: -11px;
+              top: -7px;
+              bottom: -7px;
               border-radius: 999px;
-              background: #166fff;
-              box-shadow: 0 0 0 4px rgba(22,111,255,.10), 0 0 14px rgba(22,111,255,.38);
+              background: linear-gradient(135deg, rgba(22,111,255,.10), rgba(22,111,255,.035));
+              box-shadow: inset 0 0 0 1px rgba(22,111,255,.13), 0 7px 20px rgba(22,111,255,.06);
+              pointer-events: none;
             }
 
             .site-header .desktop-nav a.cm-nav-current::after {
-              content: '';
-              position: absolute;
-              left: 50%;
-              bottom: -10px;
-              width: 20px;
-              height: 2px;
-              border-radius: 999px;
-              background: linear-gradient(90deg, transparent, #166fff, transparent);
-              transform: translateX(-50%);
-              opacity: .9;
+              content: '' !important;
+              position: absolute !important;
+              left: 50% !important;
+              right: auto !important;
+              bottom: -9px !important;
+              width: 22px !important;
+              height: 2px !important;
+              border-radius: 999px !important;
+              background: linear-gradient(90deg, transparent, #166fff 28%, #166fff 72%, transparent) !important;
+              transform: translateX(-50%) !important;
+              box-shadow: 0 0 10px rgba(22,111,255,.28);
+              opacity: .95;
+              pointer-events: none;
             }
 
             .site-header .mobile-nav > a.cm-nav-current:not(.button) {
-              display: flex;
-              align-items: center;
-              gap: 10px;
-              padding: 11px 13px;
-              border-radius: 13px;
               color: #0b63ef !important;
-              background: rgba(22,111,255,.08);
-              box-shadow: inset 3px 0 0 #166fff, inset 0 0 0 1px rgba(22,111,255,.10);
-              font-weight: 800;
+              background: rgba(22,111,255,.07);
+              box-shadow: inset 3px 0 0 #166fff, inset 0 0 0 1px rgba(22,111,255,.09);
+              border-radius: 12px;
             }
 
             .site-header .mobile-nav > a.cm-nav-current:not(.button)::before {
               content: '';
-              width: 6px;
-              height: 6px;
+              position: absolute;
+              left: 7px;
+              top: 50%;
+              width: 5px;
+              height: 5px;
               border-radius: 50%;
               background: #166fff;
-              box-shadow: 0 0 0 4px rgba(22,111,255,.10);
+              transform: translateY(-50%);
+              box-shadow: 0 0 0 4px rgba(22,111,255,.09);
             }
 
             @media (prefers-reduced-motion: reduce) {
