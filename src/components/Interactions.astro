@@ -1,7 +1,6 @@
 <div class="cm-pointer-ring" aria-hidden="true"></div>
 
 <style is:global>
-  /* Fast, elegant page fade: opacity only, no sliding or blocking loaders. */
   body {
     animation: cm-page-fade-in .18s ease-out both;
   }
@@ -17,7 +16,6 @@
     to { opacity: 1; }
   }
 
-  /* Override the previous SVG cursor implementation. Keep the native cursor reliable. */
   @media (pointer:fine) {
     a[href], button, [role="button"], .project-card {
       cursor: pointer !important;
@@ -92,23 +90,32 @@
 </style>
 
 <script>
-  /* Project screenshots: force direct, cache-busted public assets instead of old inline base64 sources. */
+  const PROJECT_IMAGES = {
+    fastTrack: 'https://raw.githubusercontent.com/samuelinmex/conexionmetropoli/main/public/assets/fasttrack-story.webp?v=4',
+    miArmario: 'https://raw.githubusercontent.com/samuelinmex/conexionmetropoli/main/public/assets/miarmario-story.webp?v=4'
+  };
+
   const repairProjectImages = () => {
     document.querySelectorAll('img').forEach((img) => {
       if (!(img instanceof HTMLImageElement)) return;
+
       const alt = (img.alt || '').toLowerCase();
       const current = img.getAttribute('src') || '';
       const isFastTrack = alt.includes('fast track english coach') || current.includes('fasttrack-story');
       const isMiArmario = alt.includes('mi armario cancún') || alt.includes('mi armario cancun') || current.includes('miarmario-story');
+
       if (isFastTrack) {
-        img.src = '/assets/fasttrack-story.webp?v=2';
+        if (img.src !== PROJECT_IMAGES.fastTrack) img.src = PROJECT_IMAGES.fastTrack;
         img.removeAttribute('srcset');
+        img.decoding = 'async';
       } else if (isMiArmario) {
-        img.src = '/assets/miarmario-story.webp?v=2';
+        if (img.src !== PROJECT_IMAGES.miArmario) img.src = PROJECT_IMAGES.miArmario;
         img.removeAttribute('srcset');
+        img.decoding = 'async';
       }
     });
   };
+
   repairProjectImages();
   document.addEventListener('DOMContentLoaded', repairProjectImages, { once:true });
   window.addEventListener('pageshow', repairProjectImages);
@@ -166,7 +173,6 @@
     document.documentElement.addEventListener('mouseleave', () => ring.classList.remove('is-interactive'));
   }
 
-  /* Internal navigation only: 120 ms fade-out, then normal navigation. */
   document.addEventListener('click', (event) => {
     if (event.defaultPrevented || reducedMotion.matches) return;
     if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
