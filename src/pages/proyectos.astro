@@ -2,28 +2,172 @@
 import Layout from '../layouts/Layout.astro';
 import Interactions from '../components/Interactions.astro';
 ---
-<Layout title="Proyectos — Conexión Metrópoli" description="Conoce algunos proyectos web entregados por Conexión Metrópoli.">
+<Layout title="Historias y proyectos — Conexión Metrópoli" description="Conoce cómo Conexión Metrópoli ha acompañado a marcas de Cancún a convertir sus ideas, servicios y productos en experiencias digitales útiles y profesionales.">
   <Interactions />
-  <section class="section">
+
+  <section class="section stories-hero">
     <div class="container">
-      <span class="eyebrow">Proyectos</span>
-      <h1 style="max-width:1000px">Trabajo real para marcas que decidieron tomarse en serio su presencia digital.</h1>
-      <p class="lead">Cada proyecto parte de un contexto distinto. Nuestra tarea es convertir objetivos de negocio en una experiencia clara, estética y funcional.</p>
+      <span class="eyebrow">Historias que construyen ciudad</span>
+      <h1 style="max-width:1100px">Detrás de cada sitio hay una persona que decidió llevar su negocio un paso más lejos.</h1>
+      <p class="lead">No vemos los proyectos como páginas terminadas y entregadas. Los vemos como herramientas que deben ayudar a una marca a explicar mejor lo que hace, acercarse a las personas correctas y crecer con una presencia digital a la altura de su trabajo.</p>
+      <div class="stories-intro" data-reveal>
+        <span>Dos marcas cancunenses</span>
+        <span>Dos mujeres emprendedoras</span>
+        <span>Dos necesidades completamente distintas</span>
+        <strong>Un mismo objetivo: convertir su presencia digital en una oportunidad.</strong>
+      </div>
     </div>
   </section>
-  <section class="section" style="padding-top:0">
-    <div class="container project-grid">
-      <a class="project-card" href="https://fasttrackenglishcoach.com" target="_blank" rel="noreferrer" data-reveal>
-        <div class="project-shot"><div class="mock-window mock-fast"><div class="mock-top"></div><div class="mock-content"></div></div></div>
-        <div class="project-info"><div class="project-meta"><h3>Fast Track English Coach</h3><span class="tag">Educación</span></div><p>Proyecto orientado a comunicar una oferta educativa de forma directa y profesional, con una identidad visual diferenciada.</p><p><strong>Visitar proyecto ↗</strong></p></div>
-      </a>
-      <a class="project-card" href="https://miarmariocancun.com" target="_blank" rel="noreferrer" data-reveal>
-        <div class="project-shot"><div class="mock-window mock-armario"><div class="mock-top"></div><div class="mock-content"></div></div></div>
-        <div class="project-info"><div class="project-meta"><h3>Mi Armario Cancún</h3><span class="tag">Moda</span></div><p>Una presencia enfocada en presentar la personalidad de la marca con un lenguaje visual acorde a su mercado.</p><p><strong>Visitar proyecto ↗</strong></p></div>
-      </a>
+
+  <section class="section story-section" id="fast-track">
+    <div class="container">
+      <article class="story-card story-fast" data-reveal>
+        <div class="story-visual">
+          <div class="project-shot"><div class="mock-window mock-fast"><div class="mock-top"></div><div class="mock-content"></div></div></div>
+          <div class="story-number">01</div>
+        </div>
+        <div class="story-content">
+          <div class="story-heading">
+            <div><span class="eyebrow">Educación · Cancún</span><h2>Fast Track English Coach</h2></div>
+            <span class="tag">Experiencia + evaluación</span>
+          </div>
+          <p class="story-lead">Aprender inglés rápido no significa aprenderlo sin dirección. El verdadero reto era ayudar a cada persona a llegar con mayor claridad sobre su punto de partida.</p>
+
+          <div class="story-grid">
+            <div class="story-point">
+              <span>La necesidad</span>
+              <p>Fast Track English Coach necesitaba conectar con personas que buscan aprender inglés de manera ágil, pero eficiente, y comunicar que existen distintas opciones de formación dependiendo de las necesidades y del nivel de cada alumno.</p>
+            </div>
+            <div class="story-point">
+              <span>Nuestra propuesta</span>
+              <p>Propusimos que el sitio no se limitara a describir cursos. Incorporamos una <strong>evaluación de inglés en línea dentro de la propia experiencia web</strong>, para que un futuro alumno pudiera dar el primer paso antes incluso de acudir a una asesoría.</p>
+            </div>
+            <div class="story-point">
+              <span>La experiencia</span>
+              <p>La evaluación ayuda a que cada persona llegue con una referencia de su nivel y con mayor confianza para recibir orientación sobre las distintas alternativas que Fast Track English Coach ofrece. La página se convierte así en parte del proceso de atención, no solamente en publicidad.</p>
+            </div>
+            <div class="story-point emphasis">
+              <span>Lo que nos inspira</span>
+              <p>Una emprendedora cancunense utilizando la tecnología para acercar conocimiento a más personas. Para Conexión Metrópoli, acompañar este proyecto significa demostrar que una buena idea digital puede simplificar decisiones y hacer que el primer contacto con una marca sea más humano y útil.</p>
+            </div>
+          </div>
+
+          <div class="story-actions">
+            <a class="button button-blue" href="https://fasttrackenglishcoach.com" target="_blank" rel="noreferrer">Visitar Fast Track English Coach ↗</a>
+            <a class="story-link" href="/contacto">Quiero una experiencia pensada para mi negocio →</a>
+          </div>
+        </div>
+      </article>
     </div>
   </section>
-  <section class="section dark-band">
-    <div class="container" data-reveal><span class="eyebrow">Tu proyecto puede ser el siguiente</span><h2>Un buen sitio no empieza con código. Empieza entendiendo qué necesitas comunicar.</h2><p class="lead">Trabajamos desde la estrategia hasta la publicación para que el resultado se sienta coherente con tu negocio.</p><a class="button button-blue" href="/contacto" style="margin-top:20px">Hablar de mi proyecto →</a></div>
+
+  <section class="section story-section story-alt" id="mi-armario">
+    <div class="container">
+      <article class="story-card story-armario" data-reveal>
+        <div class="story-visual">
+          <div class="project-shot"><div class="mock-window mock-armario"><div class="mock-top"></div><div class="mock-content"></div></div></div>
+          <div class="story-number">02</div>
+        </div>
+        <div class="story-content">
+          <div class="story-heading">
+            <div><span class="eyebrow">Moda · Cancún</span><h2>Mi Armario Cancún</h2></div>
+            <span class="tag">E-commerce</span>
+          </div>
+          <p class="story-lead">Una colección puede tener personalidad, variedad y mucho trabajo detrás. Nuestro objetivo fue darle un espacio digital donde todo eso pudiera verse, explorarse y convertirse en una experiencia de compra.</p>
+
+          <div class="story-grid">
+            <div class="story-point">
+              <span>La necesidad</span>
+              <p>Mi Armario Cancún cuenta con una amplia variedad de trajes de baño, vestidos y accesorios. La marca necesitaba un espacio donde sus clientas pudieran conocer esa oferta con mayor libertad, sin depender únicamente de publicaciones aisladas o conversaciones para descubrir cada producto.</p>
+            </div>
+            <div class="story-point">
+              <span>Nuestra propuesta</span>
+              <p>Construimos una <strong>tienda en línea</strong> que permite presentar el catálogo de una forma ordenada, visual y coherente con la personalidad de la marca, facilitando que cada clienta explore las distintas opciones desde cualquier dispositivo.</p>
+            </div>
+            <div class="story-point">
+              <span>La experiencia</span>
+              <p>El sitio funciona como una extensión del escaparate de la marca: un lugar disponible para descubrir productos, comparar opciones y acercarse a Mi Armario Cancún desde una experiencia digital más profesional y organizada.</p>
+            </div>
+            <div class="story-point emphasis">
+              <span>Lo que nos inspira</span>
+              <p>Detrás de cada colección hay una mujer emprendedora que decidió convertir su visión en una marca. Acompañar a Mi Armario Cancún significa ayudarnos mutuamente a construir algo más grande: negocios locales que pueden presentarse en internet con la misma dedicación con la que seleccionan y ofrecen cada producto.</p>
+            </div>
+          </div>
+
+          <div class="story-actions">
+            <a class="button button-blue" href="https://miarmariocancun.com" target="_blank" rel="noreferrer">Visitar Mi Armario Cancún ↗</a>
+            <a class="story-link" href="/contacto">Quiero llevar mi catálogo a internet →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section local-story dark-band">
+    <div class="container" data-reveal>
+      <span class="eyebrow">Acompañamiento que continúa</span>
+      <h2>Nos gusta crecer al lado de quienes se atreven a construir algo propio.</h2>
+      <div class="local-story-grid">
+        <p class="lead">Fast Track English Coach y Mi Armario Cancún son empresas cancunenses creadas por mujeres emprendedoras que encontraron en internet una forma de acercar sus servicios y productos a más personas.</p>
+        <p class="lead">Conexión Metrópoli las ha acompañado en ese recorrido y continúa haciéndolo. Porque para nosotros publicar un sitio no es el final del proyecto: es el momento en que una nueva etapa comienza.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" data-reveal>
+      <div class="cta-panel">
+        <span class="eyebrow">La siguiente historia puede ser la tuya</span>
+        <h2>No necesitas llegar con la solución. Empieza contándonos qué quieres lograr.</h2>
+        <p class="lead">Podemos ayudarte a convertir una necesidad de tu negocio en una experiencia digital útil, clara y profesional. A veces la mejor funcionalidad nace de una conversación sencilla sobre un problema real.</p>
+        <a class="button button-blue" href="/contacto" style="margin-top:20px">Cuéntanos tu historia →</a>
+      </div>
+    </div>
   </section>
 </Layout>
+
+<style>
+  .stories-hero{padding-bottom:72px}
+  .stories-intro{margin-top:48px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:18px 22px;border:1px solid var(--line);border-radius:18px;background:#fff;color:var(--muted)}
+  .stories-intro span{padding:7px 11px;border-radius:999px;background:#eef4ff;color:#315173;font-size:.84rem}
+  .stories-intro strong{margin-left:auto;color:var(--ink);font-size:.9rem}
+  .story-section{padding-top:55px;padding-bottom:90px}
+  .story-alt{background:#edf2f8}
+  .story-card{display:grid;grid-template-columns:.82fr 1.18fr;gap:0;background:#fff;border:1px solid var(--line);border-radius:34px;overflow:hidden;box-shadow:0 20px 60px rgba(7,23,47,.07)}
+  .story-visual{position:relative;min-height:100%;background:#dce7f5;padding:26px;display:flex;align-items:center}
+  .story-visual .project-shot{width:100%;height:430px;padding:0;background:transparent}
+  .story-number{position:absolute;left:28px;bottom:22px;font-size:clamp(4.4rem,8vw,7rem);font-weight:900;line-height:.8;letter-spacing:-.08em;color:rgba(7,23,47,.09)}
+  .story-content{padding:clamp(32px,5vw,64px)}
+  .story-heading{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;margin-bottom:20px}
+  .story-heading h2{font-size:clamp(2.3rem,4vw,4rem);margin:7px 0 0}
+  .story-lead{font-size:1.22rem;line-height:1.55;color:#344761;max-width:820px;margin-bottom:34px}
+  .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .story-point{padding:22px;border:1px solid var(--line);border-radius:18px;background:#f9fbfd}
+  .story-point>span{display:block;margin-bottom:9px;color:var(--blue);font-size:.74rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+  .story-point p{margin:0;color:var(--muted);font-size:.96rem}
+  .story-point strong{color:var(--ink)}
+  .story-point.emphasis{background:#081a35;border-color:#081a35}
+  .story-point.emphasis>span{color:#64a0ff}
+  .story-point.emphasis p{color:#c1cede}
+  .story-actions{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:32px}
+  .story-link{font-weight:750;color:#16385f}
+  .story-link:hover{color:var(--blue)}
+  .local-story-grid{display:grid;grid-template-columns:1fr 1fr;gap:55px;margin-top:32px}
+  .local-story h2{max-width:900px}
+  @media(max-width:980px){
+    .story-card{grid-template-columns:1fr}
+    .story-visual{min-height:390px}
+    .story-visual .project-shot{height:350px}
+    .stories-intro strong{width:100%;margin-left:0;margin-top:4px}
+  }
+  @media(max-width:650px){
+    .story-section{padding-top:35px;padding-bottom:65px}
+    .story-visual{padding:16px;min-height:300px}
+    .story-visual .project-shot{height:270px}
+    .story-content{padding:28px 22px}
+    .story-heading{display:block}
+    .story-heading .tag{display:inline-block;margin-top:10px}
+    .story-grid,.local-story-grid{grid-template-columns:1fr}
+    .story-lead{font-size:1.08rem}
+  }
+</style>
