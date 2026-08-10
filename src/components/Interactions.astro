@@ -91,8 +91,8 @@
 
 <script>
   const PROJECT_IMAGES = {
-    fastTrack: 'https://raw.githubusercontent.com/samuelinmex/conexionmetropoli/main/public/assets/fasttrack-story.webp?v=4',
-    miArmario: 'https://raw.githubusercontent.com/samuelinmex/conexionmetropoli/main/public/assets/miarmario-story.webp?v=4'
+    fastTrack: '/assets/fasttrack-story.webp?v=6',
+    miArmario: '/assets/miarmario-story.webp?v=6'
   };
 
   const repairProjectImages = () => {
@@ -105,11 +105,11 @@
       const isMiArmario = alt.includes('mi armario cancún') || alt.includes('mi armario cancun') || current.includes('miarmario-story');
 
       if (isFastTrack) {
-        if (img.src !== PROJECT_IMAGES.fastTrack) img.src = PROJECT_IMAGES.fastTrack;
+        if (img.getAttribute('src') !== PROJECT_IMAGES.fastTrack) img.setAttribute('src', PROJECT_IMAGES.fastTrack);
         img.removeAttribute('srcset');
         img.decoding = 'async';
       } else if (isMiArmario) {
-        if (img.src !== PROJECT_IMAGES.miArmario) img.src = PROJECT_IMAGES.miArmario;
+        if (img.getAttribute('src') !== PROJECT_IMAGES.miArmario) img.setAttribute('src', PROJECT_IMAGES.miArmario);
         img.removeAttribute('srcset');
         img.decoding = 'async';
       }
