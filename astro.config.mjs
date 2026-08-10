@@ -4,7 +4,7 @@ const carouselGradient = {
   name: 'conexion-metropoli-carousel-gradient',
   hooks: {
     'astro:config:setup': ({ injectScript }) => {
-      injectScript('page-ssr', 'import "./src/styles/carousel-gradient.css";');
+      injectScript('page-ssr', 'import "/src/styles/carousel-gradient.css";');
     },
   },
 };
