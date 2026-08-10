@@ -1,51 +1,73 @@
-/* Conexión Metrópoli — carousel text/readability override.
-   The left side intentionally covers the screenshot text so our case-study copy
-   remains readable, while the right side stays visually open. */
+/* Conexión Metrópoli — carousel readability layer.
+   The screenshot is intentionally hidden behind the case-study copy and only
+   becomes visible after the text zone, so both typographic systems never compete. */
 
 .stories-showcase .impact-shade {
   background:
     linear-gradient(90deg,
-      rgba(3,15,35,1) 0%,
-      rgba(4,24,55,1) 20%,
-      rgba(6,43,96,.995) 40%,
-      rgba(10,72,157,.96) 54%,
-      rgba(24,105,216,.86) 64%,
-      rgba(40,130,255,.58) 73%,
-      rgba(48,139,255,.28) 80%,
-      rgba(45,135,255,.09) 86%,
-      rgba(45,135,255,0) 92%) !important;
+      #031329 0%,
+      #041f49 18%,
+      #063a82 36%,
+      #0855b5 49%,
+      #0d6cdb 58%,
+      #147bed 64%,
+      rgba(24,126,242,.96) 68%,
+      rgba(31,132,248,.74) 73%,
+      rgba(38,137,253,.42) 78%,
+      rgba(42,139,255,.16) 83%,
+      rgba(42,139,255,0) 88%) !important;
 }
 
-/* A soft vertical wash makes the transition feel intentional rather than a hard mask. */
+/* Add depth without making the underlying screenshot readable inside the copy zone. */
 .stories-showcase .impact-shade::before {
   content: '';
   position: absolute;
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(circle at 51% 48%, rgba(52,137,255,.22), transparent 31%),
-    linear-gradient(180deg, rgba(2,12,29,.12), transparent 30%, transparent 72%, rgba(2,12,29,.18));
+    radial-gradient(circle at 61% 48%, rgba(93,168,255,.24), transparent 23%),
+    linear-gradient(180deg, rgba(1,9,24,.10), transparent 29%, transparent 75%, rgba(1,9,24,.15));
 }
 
-/* Keep the copy completely inside the protected opaque portion of the gradient. */
+/* Keep all editorial copy safely inside the fully opaque portion. */
 .stories-showcase .impact-copy {
-  width: min(590px, 38vw) !important;
+  width: min(570px, 35vw) !important;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
   .stories-showcase .impact-shade {
     background:
       linear-gradient(90deg,
-        rgba(3,15,35,1) 0%,
-        rgba(5,30,69,1) 28%,
-        rgba(8,58,127,.98) 48%,
-        rgba(18,91,191,.90) 62%,
-        rgba(35,122,244,.62) 75%,
-        rgba(42,132,255,.20) 87%,
-        rgba(42,132,255,0) 96%) !important;
+        #031329 0%,
+        #04214d 22%,
+        #06418f 42%,
+        #0a61c8 56%,
+        #1175e8 65%,
+        rgba(25,126,242,.94) 70%,
+        rgba(34,134,250,.66) 77%,
+        rgba(41,139,255,.28) 84%,
+        rgba(42,139,255,0) 91%) !important;
   }
   .stories-showcase .impact-copy {
-    width: min(560px, 46vw) !important;
+    width: min(550px, 39vw) !important;
+  }
+}
+
+@media (max-width: 1000px) {
+  .stories-showcase .impact-shade {
+    background:
+      linear-gradient(90deg,
+        #031329 0%,
+        #052859 30%,
+        #07499c 51%,
+        #0c67d1 65%,
+        rgba(23,119,232,.96) 72%,
+        rgba(33,132,248,.66) 82%,
+        rgba(40,139,255,.22) 91%,
+        rgba(40,139,255,0) 98%) !important;
+  }
+  .stories-showcase .impact-copy {
+    width: min(540px, 50vw) !important;
   }
 }
 
@@ -53,11 +75,11 @@
   .stories-showcase .impact-shade {
     background:
       linear-gradient(90deg,
-        rgba(3,15,35,1) 0%,
-        rgba(5,32,73,.99) 45%,
-        rgba(12,70,151,.94) 70%,
-        rgba(25,108,224,.72) 88%,
-        rgba(35,126,250,.48) 100%) !important;
+        #031329 0%,
+        #052b61 48%,
+        #0a5abb 72%,
+        rgba(17,111,222,.96) 86%,
+        rgba(28,126,242,.80) 100%) !important;
   }
   .stories-showcase .impact-copy {
     width: 100% !important;
