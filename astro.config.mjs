@@ -23,30 +23,51 @@ const carouselGradient = {
           const style = document.createElement('style');
           style.id = 'cm-navigation-indicator-styles';
           style.textContent = \`
-            .site-header .desktop-nav a,
-            .site-header .mobile-nav > a:not(.button) {
-              position: relative;
-              transition: color .22s ease, opacity .22s ease;
+            /*
+             * Misma estética del commit 460c158, pero sin reflow:
+             * TODOS los enlaces reservan desde el inicio el espacio de la cápsula
+             * y del punto. El activo únicamente cambia color/fondo/sombra.
+             */
+            .site-header .desktop-nav {
+              align-items: center;
             }
 
-            /* El estado activo NO altera padding, gap, ancho, alto ni peso tipográfico. */
+            .site-header .desktop-nav a {
+              position: relative;
+              display: inline-flex;
+              align-items: center;
+              gap: 8px;
+              padding: 8px 13px;
+              border-radius: 999px;
+              background: transparent;
+              box-shadow: inset 0 0 0 1px transparent, 0 8px 22px transparent;
+              color: inherit;
+              font-weight: 750;
+              white-space: nowrap;
+              transition: color .22s ease, background .22s ease, box-shadow .22s ease;
+            }
+
+            /* Reserva exactamente el lugar que ocupaba el punto original. */
+            .site-header .desktop-nav a::before {
+              content: '';
+              width: 5px;
+              height: 5px;
+              flex: 0 0 5px;
+              border-radius: 999px;
+              background: transparent;
+              box-shadow: none;
+              transition: background .22s ease, box-shadow .22s ease;
+            }
+
             .site-header .desktop-nav a.cm-nav-current {
               color: #0b63ef !important;
-              isolation: isolate;
+              background: linear-gradient(135deg, rgba(22,111,255,.11), rgba(22,111,255,.045));
+              box-shadow: inset 0 0 0 1px rgba(22,111,255,.16), 0 8px 22px rgba(22,111,255,.08);
             }
 
             .site-header .desktop-nav a.cm-nav-current::before {
-              content: '';
-              position: absolute;
-              z-index: -1;
-              left: -11px;
-              right: -11px;
-              top: -7px;
-              bottom: -7px;
-              border-radius: 999px;
-              background: linear-gradient(135deg, rgba(22,111,255,.10), rgba(22,111,255,.035));
-              box-shadow: inset 0 0 0 1px rgba(22,111,255,.13), 0 7px 20px rgba(22,111,255,.06);
-              pointer-events: none;
+              background: #166fff;
+              box-shadow: 0 0 0 4px rgba(22,111,255,.10), 0 0 14px rgba(22,111,255,.38);
             }
 
             .site-header .desktop-nav a.cm-nav-current::after {
@@ -54,35 +75,63 @@ const carouselGradient = {
               position: absolute !important;
               left: 50% !important;
               right: auto !important;
-              bottom: -9px !important;
-              width: 22px !important;
+              bottom: -10px !important;
+              width: 20px !important;
               height: 2px !important;
               border-radius: 999px !important;
-              background: linear-gradient(90deg, transparent, #166fff 28%, #166fff 72%, transparent) !important;
+              background: linear-gradient(90deg, transparent, #166fff, transparent) !important;
               transform: translateX(-50%) !important;
-              box-shadow: 0 0 10px rgba(22,111,255,.28);
-              opacity: .95;
+              opacity: .9 !important;
               pointer-events: none;
+            }
+
+            /* Mantiene el hover original sin afectar las dimensiones. */
+            .site-header .desktop-nav a:not(.cm-nav-current):hover {
+              color: #0b63ef;
+              background: rgba(22,111,255,.035);
+              box-shadow: inset 0 0 0 1px rgba(22,111,255,.07), 0 7px 18px rgba(22,111,255,.035);
+            }
+
+            .site-header .mobile-nav > a:not(.button) {
+              position: relative;
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              padding: 11px 13px;
+              border-radius: 13px;
+              font-weight: 800;
+              transition: color .22s ease, background .22s ease, box-shadow .22s ease;
+            }
+
+            .site-header .mobile-nav > a:not(.button)::before {
+              content: '';
+              width: 6px;
+              height: 6px;
+              flex: 0 0 6px;
+              border-radius: 50%;
+              background: transparent;
+              box-shadow: none;
             }
 
             .site-header .mobile-nav > a.cm-nav-current:not(.button) {
               color: #0b63ef !important;
-              background: rgba(22,111,255,.07);
-              box-shadow: inset 3px 0 0 #166fff, inset 0 0 0 1px rgba(22,111,255,.09);
-              border-radius: 12px;
+              background: rgba(22,111,255,.08);
+              box-shadow: inset 3px 0 0 #166fff, inset 0 0 0 1px rgba(22,111,255,.10);
             }
 
             .site-header .mobile-nav > a.cm-nav-current:not(.button)::before {
-              content: '';
-              position: absolute;
-              left: 7px;
-              top: 50%;
-              width: 5px;
-              height: 5px;
-              border-radius: 50%;
               background: #166fff;
-              transform: translateY(-50%);
-              box-shadow: 0 0 0 4px rgba(22,111,255,.09);
+              box-shadow: 0 0 0 4px rgba(22,111,255,.10);
+            }
+
+            @media (max-width: 1100px) and (min-width: 901px) {
+              .site-header .desktop-nav {
+                gap: 12px;
+              }
+              .site-header .desktop-nav a {
+                padding-inline: 10px;
+                gap: 6px;
+              }
             }
 
             @media (prefers-reduced-motion: reduce) {
