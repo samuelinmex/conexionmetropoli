@@ -1,87 +1,144 @@
-/* Conexión Metrópoli — carousel readability layer.
-   The screenshot is intentionally hidden behind the case-study copy and only
-   becomes visible after the text zone, so both typographic systems never compete. */
+/* Conexión Metrópoli — split editorial/project carousel.
+   Desktop deliberately removes the screenshot from behind the copy zone.
+   The project image begins on the right and a soft blue transition joins both areas. */
 
-.stories-showcase .impact-shade {
+.stories-showcase .impact-slide {
   background:
     linear-gradient(90deg,
       #031329 0%,
-      #041f49 18%,
-      #063a82 36%,
-      #0855b5 49%,
-      #0d6cdb 58%,
-      #147bed 64%,
-      rgba(24,126,242,.96) 68%,
-      rgba(31,132,248,.74) 73%,
-      rgba(38,137,253,.42) 78%,
-      rgba(42,139,255,.16) 83%,
-      rgba(42,139,255,0) 88%) !important;
+      #042657 25%,
+      #06418e 42%,
+      #0a64cb 52%,
+      #1178ec 58%,
+      #0b4f9f 61%,
+      #04142d 64%,
+      #04142d 100%) !important;
 }
 
-/* Add depth without making the underlying screenshot readable inside the copy zone. */
+/* The screenshot no longer exists underneath the editorial copy. */
+.stories-showcase .impact-image {
+  clip-path: inset(0 0 0 51%) !important;
+  object-position: top right !important;
+}
+
+/* This layer only softens the seam between panel and screenshot. */
+.stories-showcase .impact-shade {
+  background:
+    linear-gradient(90deg,
+      rgba(3,19,41,1) 0%,
+      rgba(4,38,87,1) 34%,
+      rgba(6,65,142,1) 47%,
+      rgba(10,100,203,1) 54%,
+      rgba(17,120,236,.98) 58%,
+      rgba(30,132,247,.82) 61%,
+      rgba(42,139,255,.48) 64%,
+      rgba(42,139,255,.18) 67%,
+      rgba(42,139,255,0) 71%) !important;
+}
+
 .stories-showcase .impact-shade::before {
   content: '';
   position: absolute;
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(circle at 61% 48%, rgba(93,168,255,.24), transparent 23%),
-    linear-gradient(180deg, rgba(1,9,24,.10), transparent 29%, transparent 75%, rgba(1,9,24,.15));
+    radial-gradient(ellipse at 55% 50%, rgba(93,168,255,.22), transparent 21%),
+    linear-gradient(180deg, rgba(1,9,24,.10), transparent 28%, transparent 76%, rgba(1,9,24,.14));
 }
 
-/* Keep all editorial copy safely inside the fully opaque portion. */
+/* Keep every editorial element inside the clean left panel. */
+.stories-showcase .impact-content-wrap {
+  justify-content: flex-start !important;
+}
+
 .stories-showcase .impact-copy {
-  width: min(570px, 35vw) !important;
+  width: min(575px, 38vw) !important;
+  max-width: 575px !important;
+}
+
+/* Keep the domain and project badge visually associated with the split layout. */
+.stories-showcase .impact-topline {
+  left: clamp(24px,3vw,58px) !important;
+  right: clamp(24px,3vw,58px) !important;
+}
+
+/* Slightly reinforce copy contrast without creating another card. */
+.stories-showcase .impact-copy h3,
+.stories-showcase .impact-copy > p,
+.stories-showcase .impact-detail,
+.stories-showcase .impact-kicker {
+  text-shadow: 0 2px 18px rgba(0,13,38,.18) !important;
 }
 
 @media (max-width: 1400px) {
+  .stories-showcase .impact-image {
+    clip-path: inset(0 0 0 53%) !important;
+  }
+
   .stories-showcase .impact-shade {
     background:
       linear-gradient(90deg,
-        #031329 0%,
-        #04214d 22%,
-        #06418f 42%,
-        #0a61c8 56%,
-        #1175e8 65%,
-        rgba(25,126,242,.94) 70%,
-        rgba(34,134,250,.66) 77%,
-        rgba(41,139,255,.28) 84%,
-        rgba(42,139,255,0) 91%) !important;
+        rgba(3,19,41,1) 0%,
+        rgba(5,44,99,1) 39%,
+        rgba(8,78,166,1) 51%,
+        rgba(16,112,224,.99) 58%,
+        rgba(28,129,244,.80) 63%,
+        rgba(39,137,253,.40) 68%,
+        rgba(42,139,255,.12) 72%,
+        rgba(42,139,255,0) 76%) !important;
   }
+
   .stories-showcase .impact-copy {
-    width: min(550px, 39vw) !important;
+    width: min(545px, 41vw) !important;
   }
 }
 
 @media (max-width: 1000px) {
+  .stories-showcase .impact-image {
+    clip-path: inset(0 0 0 58%) !important;
+    object-position: 70% top !important;
+  }
+
   .stories-showcase .impact-shade {
     background:
       linear-gradient(90deg,
-        #031329 0%,
-        #052859 30%,
-        #07499c 51%,
-        #0c67d1 65%,
-        rgba(23,119,232,.96) 72%,
-        rgba(33,132,248,.66) 82%,
-        rgba(40,139,255,.22) 91%,
-        rgba(40,139,255,0) 98%) !important;
+        rgba(3,19,41,1) 0%,
+        rgba(5,44,99,1) 44%,
+        rgba(8,78,166,.99) 56%,
+        rgba(16,112,224,.96) 64%,
+        rgba(31,132,247,.64) 72%,
+        rgba(42,139,255,.18) 79%,
+        rgba(42,139,255,0) 84%) !important;
   }
+
   .stories-showcase .impact-copy {
-    width: min(540px, 50vw) !important;
+    width: min(520px, 52vw) !important;
   }
 }
 
+/* On phones there is not enough horizontal room for a true split, so use
+   a strong overlay instead while preserving text readability. */
 @media (max-width: 700px) {
+  .stories-showcase .impact-image {
+    clip-path: none !important;
+    object-position: 62% top !important;
+  }
+
+  .stories-showcase .impact-slide {
+    background: #031329 !important;
+  }
+
   .stories-showcase .impact-shade {
     background:
       linear-gradient(90deg,
-        #031329 0%,
-        #052b61 48%,
-        #0a5abb 72%,
-        rgba(17,111,222,.96) 86%,
-        rgba(28,126,242,.80) 100%) !important;
+        rgba(3,19,41,.995) 0%,
+        rgba(5,43,96,.98) 52%,
+        rgba(9,82,174,.92) 76%,
+        rgba(20,115,229,.76) 100%) !important;
   }
+
   .stories-showcase .impact-copy {
     width: 100% !important;
+    max-width: none !important;
   }
 }
