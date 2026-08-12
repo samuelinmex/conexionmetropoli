@@ -17,7 +17,6 @@ html body .stories-showcase .impact-slide {
 }
 
 html body .stories-showcase .impact-image {
-  /* Critical: no screenshot pixels exist behind the editorial copy. */
   clip-path: inset(0 0 0 52%) !important;
   object-position: top right !important;
   filter: saturate(.98) contrast(1.02) brightness(.98) !important;
@@ -28,7 +27,6 @@ html body .stories-showcase .impact-slide.is-active .impact-image {
   object-position: top right !important;
 }
 
-/* Only blend the physical seam where the image begins. */
 html body .stories-showcase .impact-shade {
   background:
     linear-gradient(90deg,
@@ -53,7 +51,6 @@ html body .stories-showcase .impact-shade::before {
     linear-gradient(180deg, rgba(0,8,24,.08), transparent 28%, transparent 76%, rgba(0,8,24,.13));
 }
 
-/* Domain + project label now live together inside the clean editorial side. */
 html body .stories-showcase .impact-topline {
   left: clamp(24px,3vw,58px) !important;
   right: auto !important;
@@ -71,7 +68,6 @@ html body .stories-showcase .impact-project {
   box-shadow: 0 10px 28px rgba(0,12,35,.14) !important;
 }
 
-/* All case-study copy stays fully inside the opaque panel. */
 html body .stories-showcase .impact-content-wrap {
   justify-content: flex-start !important;
 }
@@ -99,7 +95,6 @@ html body .stories-showcase .impact-detail {
   backdrop-filter: blur(10px) !important;
 }
 
-/* Counter remains readable over the screenshot. */
 html body .stories-showcase .impact-index {
   background: rgba(3,19,41,.88) !important;
   border-color: rgba(255,255,255,.24) !important;
@@ -161,52 +156,308 @@ html body .stories-showcase .impact-index {
   }
 }
 
-/* Mobile switches to a vertical split: screenshot above, editorial copy below. */
+/*
+ * Mobile is intentionally a different composition.
+ * A website screenshot needs room to be understood; editorial copy needs a
+ * separate opaque surface. Nothing important floats over the screenshot.
+ */
 @media (max-width: 700px) {
-  html body .stories-showcase .impact-image,
-  html body .stories-showcase .impact-slide.is-active .impact-image {
-    clip-path: inset(0 0 46% 0) !important;
-    object-position: top center !important;
+  html body .stories-showcase .impact-carousel {
+    background: #031329 !important;
+    overflow: hidden !important;
   }
 
+  html body .stories-showcase .impact-stage {
+    height: 790px !important;
+    min-height: 790px !important;
+    background: #031329 !important;
+    overflow: hidden !important;
+  }
+
+  html body .stories-showcase .impact-slide {
+    inset: 0 !important;
+    background: #031329 !important;
+    clip-path: none !important;
+    transform: none !important;
+    overflow: hidden !important;
+  }
+
+  html body .stories-showcase .impact-slide:not(.is-active) {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    z-index: 0 !important;
+  }
+
+  html body .stories-showcase .impact-slide.is-active {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    z-index: 2 !important;
+  }
+
+  /* Screenshot gets its own clean 255px viewport. */
+  html body .stories-showcase .impact-image,
+  html body .stories-showcase .impact-slide.is-active .impact-image {
+    position: absolute !important;
+    inset: 0 0 auto 0 !important;
+    width: 100% !important;
+    height: 255px !important;
+    clip-path: none !important;
+    object-fit: cover !important;
+    object-position: top center !important;
+    opacity: 1 !important;
+    filter: saturate(1) contrast(1.01) brightness(.98) !important;
+    transform: none !important;
+    transition: opacity .42s ease !important;
+  }
+
+  /* Only darken the bottom edge of the screenshot, then become the copy panel. */
   html body .stories-showcase .impact-shade {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 1 !important;
     background:
       linear-gradient(180deg,
-        rgba(3,19,41,.08) 0%,
-        rgba(3,19,41,.16) 36%,
-        rgba(5,40,91,.72) 47%,
-        #063a82 56%,
-        #042451 68%,
+        rgba(3,19,41,.04) 0px,
+        rgba(3,19,41,.06) 150px,
+        rgba(3,19,41,.30) 205px,
+        rgba(3,19,41,.82) 245px,
+        #031329 285px,
         #031329 100%) !important;
   }
 
+  html body .stories-showcase .impact-shade::before {
+    background: linear-gradient(180deg, transparent 0 205px, rgba(34,126,245,.16) 252px, transparent 315px) !important;
+  }
+
+  html body .stories-showcase .impact-shade::after {
+    display: none !important;
+    animation: none !important;
+  }
+
+  /* Only the domain remains over the screenshot. */
   html body .stories-showcase .impact-topline {
+    top: 14px !important;
     left: 14px !important;
     right: 14px !important;
     width: auto !important;
+    height: auto !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    flex-wrap: nowrap !important;
+    gap: 0 !important;
+    z-index: 5 !important;
+  }
+
+  html body .stories-showcase .impact-domain {
+    max-width: calc(100vw - 96px) !important;
+    min-width: 0 !important;
+    padding: 8px 11px !important;
+    border-radius: 999px !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+    font-size: .68rem !important;
+    background: rgba(255,255,255,.88) !important;
+    border: 1px solid rgba(255,255,255,.72) !important;
+    box-shadow: 0 10px 24px rgba(0,12,35,.14) !important;
+    backdrop-filter: blur(12px) !important;
+  }
+
+  html body .stories-showcase .impact-domain i {
+    width: 5px !important;
+    height: 5px !important;
+    flex: 0 0 5px !important;
   }
 
   html body .stories-showcase .impact-project {
-    display: inline-flex !important;
+    display: none !important;
   }
 
+  /* Editorial copy starts below the screenshot. */
   html body .stories-showcase .impact-content-wrap {
-    align-items: flex-end !important;
-    padding: 72px 20px 44px !important;
+    position: absolute !important;
+    inset: 265px 0 0 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 32px 22px 24px !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    z-index: 3 !important;
   }
 
-  html body .stories-showcase .impact-copy {
+  html body .stories-showcase .impact-copy,
+  html body .stories-showcase .impact-slide.is-active .impact-copy {
     width: 100% !important;
     max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+
+  html body .stories-showcase .impact-kicker {
+    margin: 0 0 11px !important;
+    font-size: .64rem !important;
+    letter-spacing: .12em !important;
+    color: #8bc2ff !important;
   }
 
   html body .stories-showcase .impact-copy h3 {
     max-width: 100% !important;
-    font-size: clamp(2.8rem,12vw,4.3rem) !important;
+    margin: 0 0 14px !important;
+    font-size: clamp(2.45rem, 11vw, 3.45rem) !important;
+    line-height: .91 !important;
+    letter-spacing: -.055em !important;
+    color: #fff !important;
   }
 
-  html body .stories-showcase .impact-copy > p,
+  html body .stories-showcase .impact-copy > p {
+    max-width: 100% !important;
+    margin: 0 0 16px !important;
+    font-size: .94rem !important;
+    line-height: 1.48 !important;
+    color: rgba(255,255,255,.82) !important;
+  }
+
   html body .stories-showcase .impact-detail {
     max-width: 100% !important;
+    margin: 0 0 17px !important;
+    padding: 13px 14px !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 5px !important;
+    border-radius: 14px !important;
+    background: rgba(10,39,82,.64) !important;
+    border: 1px solid rgba(139,194,255,.17) !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.04) !important;
+    backdrop-filter: blur(8px) !important;
+  }
+
+  html body .stories-showcase .impact-detail strong {
+    padding: 0 !important;
+    font-size: .59rem !important;
+  }
+
+  html body .stories-showcase .impact-detail span {
+    font-size: .79rem !important;
+    line-height: 1.42 !important;
+  }
+
+  html body .stories-showcase .impact-cta {
+    min-height: 42px !important;
+    padding: 11px 15px !important;
+    font-size: .78rem !important;
+  }
+
+  /* Compact counter: force-reset every dimension that could inherit badly. */
+  html body .stories-showcase .impact-index {
+    position: absolute !important;
+    top: 218px !important;
+    right: 14px !important;
+    bottom: auto !important;
+    left: auto !important;
+    width: auto !important;
+    height: auto !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    max-width: none !important;
+    padding: 6px 9px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 3px !important;
+    border-radius: 999px !important;
+    writing-mode: horizontal-tb !important;
+    white-space: nowrap !important;
+    font-size: .72rem !important;
+    line-height: 1 !important;
+    letter-spacing: 0 !important;
+    color: #fff !important;
+    background: rgba(3,19,41,.78) !important;
+    border: 1px solid rgba(255,255,255,.18) !important;
+    box-shadow: 0 8px 22px rgba(0,12,35,.18) !important;
+    backdrop-filter: blur(10px) !important;
+    z-index: 6 !important;
+  }
+
+  html body .stories-showcase .impact-index small {
+    display: inline !important;
+    font-size: .62rem !important;
+    line-height: 1 !important;
+  }
+
+  /* Controls become a simple footer bar. */
+  html body .stories-showcase .impact-controls {
+    height: 62px !important;
+    min-height: 62px !important;
+    padding-inline: 18px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 14px !important;
+    background: #061a37 !important;
+    border-top: 1px solid rgba(255,255,255,.08) !important;
+  }
+
+  html body .stories-showcase .impact-arrows {
+    display: flex !important;
+    gap: 7px !important;
+  }
+
+  html body .stories-showcase .impact-arrows button {
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    min-height: 38px !important;
+  }
+
+  html body .stories-showcase .impact-progress {
+    margin-left: auto !important;
+  }
+
+  html body .stories-showcase .impact-hint {
+    display: none !important;
+  }
+
+  /* Disable the desktop stagger on mobile: the whole card enters as one unit. */
+  html body .stories-showcase .impact-slide.is-active .impact-kicker,
+  html body .stories-showcase .impact-slide.is-active .impact-copy h3,
+  html body .stories-showcase .impact-slide.is-active .impact-copy > p,
+  html body .stories-showcase .impact-slide.is-active .impact-detail,
+  html body .stories-showcase .impact-slide.is-active .impact-cta {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+}
+
+@media (max-width: 390px) {
+  html body .stories-showcase .impact-stage {
+    height: 810px !important;
+    min-height: 810px !important;
+  }
+
+  html body .stories-showcase .impact-image,
+  html body .stories-showcase .impact-slide.is-active .impact-image {
+    height: 235px !important;
+  }
+
+  html body .stories-showcase .impact-content-wrap {
+    inset: 245px 0 0 0 !important;
+    padding: 30px 18px 22px !important;
+  }
+
+  html body .stories-showcase .impact-index {
+    top: 198px !important;
+  }
+
+  html body .stories-showcase .impact-copy h3 {
+    font-size: clamp(2.25rem, 11vw, 3rem) !important;
   }
 }
