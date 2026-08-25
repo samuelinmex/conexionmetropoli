@@ -2,40 +2,90 @@
 import Layout from '../layouts/Layout.astro';
 import Interactions from '../components/Interactions.astro';
 ---
-<Layout title="Servicios — Conexión Metrópoli" description="Diseño web, sitios corporativos, UX/UI e identidad digital para negocios que quieren una presencia profesional.">
+
+<Layout
+  title="Servicios tecnológicos — Conexión Metrópoli"
+  description="Mantenimiento de equipos de cómputo, puntos de venta, CCTV y landing pages para negocios. Venta, instalación, configuración y soporte."
+>
   <Interactions />
-  <section class="section">
+
+  <section class="section services-hero">
     <div class="container">
-      <span class="eyebrow">Servicios</span>
-      <h1 style="max-width:950px">Construimos la presencia digital que tu negocio necesita para <strong class="accent">competir en serio.</strong></h1>
-      <p class="lead">No vendemos plantillas disfrazadas de estrategia. Definimos alcance, estructura, diseño y experiencia para que cada proyecto tenga una razón de ser.</p>
+      <span class="eyebrow">Servicios para negocios</span>
+      <h1 style="max-width:1050px">Tecnología útil, instalada y configurada para <strong class="accent">trabajar contigo.</strong></h1>
+      <p class="lead">No queremos llenarte de términos técnicos. Queremos entender qué problema necesitas resolver y dejarte una solución clara, funcional y lista para usar.</p>
     </div>
   </section>
 
-  <section class="section" style="padding-top:0">
-    <div class="container service-grid">
-      <article class="service-card price-card" data-reveal>
-        <span class="service-number">IDEAL PARA EMPEZAR</span>
-        <h2 style="font-size:clamp(2.4rem,5vw,4.4rem)">Landing Esencial</h2>
-        <div class="price-big">$2,000 <small>MXN desde</small></div>
-        <p>Una página breve y estratégica para negocios que necesitan presencia profesional rápidamente.</p>
-        <div style="display:grid;gap:12px;margin:25px 0;color:#d7e1ef"><span>01 · Impacto inicial: propuesta de valor y CTA</span><span>02 · Servicios o beneficios principales</span><span>03 · Conversión: prueba de confianza + contacto</span></div>
-        <a class="button button-blue" href="/contacto">Solicitar este plan →</a>
+  <section class="section service-detail-section" style="padding-top:20px">
+    <div class="container service-detail-grid">
+      <article class="service-detail" id="mantenimiento" data-reveal>
+        <div class="service-head"><span>01</span><div><small>MANTENIMIENTO Y SOPORTE</small><h2>Equipos de cómputo</h2></div></div>
+        <p class="service-lead">Cuando una computadora falla, se vuelve lenta o empieza a detener la operación, el problema no es solo técnico: también cuesta tiempo.</p>
+        <div class="service-columns">
+          <div><h3>Podemos ayudarte con</h3><ul><li>Diagnóstico de fallas</li><li>Mantenimiento preventivo y correctivo</li><li>Limpieza física y revisión general</li><li>Optimización del sistema</li><li>Formateo e instalación de sistema operativo</li><li>Problemas de hardware y software</li></ul></div>
+          <div class="service-note"><strong>Ideal para</strong><p>Oficinas, comercios, pequeños negocios y usuarios que dependen de su equipo todos los días y necesitan recuperar estabilidad y rendimiento.</p></div>
+        </div>
+        <a class="button button-blue" href="/contacto">Solicitar revisión →</a>
       </article>
-      <article class="service-card" data-reveal><span class="service-number">SITIO MULTIPÁGINA</span><h3>Sitio corporativo</h3><p>Para empresas que necesitan explicar servicios, trayectoria, proyectos, equipo y procesos en páginas independientes, con navegación clara y una estructura preparada para crecer.</p></article>
-      <article class="service-card" data-reveal><span class="service-number">EXPERIENCIA</span><h3>UX/UI web</h3><p>Diseñamos jerarquía, flujos, componentes y microinteracciones para que el usuario encuentre lo importante sin esfuerzo y perciba profesionalidad en cada detalle.</p></article>
-      <article class="service-card" data-reveal><span class="service-number">MARCA</span><h3>Identidad digital</h3><p>Color, tipografía, tono visual, aplicaciones de logo y sistema gráfico para que tu presencia web sea coherente y reconocible.</p></article>
-      <article class="service-card" data-reveal><span class="service-number">CALIDAD TÉCNICA</span><h3>Rendimiento y SEO técnico</h3><p>Construimos con semántica correcta, diseño adaptable, buenas prácticas de velocidad y una base amigable con buscadores.</p></article>
+
+      <article class="service-detail dark-detail" id="pos" data-reveal>
+        <div class="service-head"><span>02</span><div><small>PUNTO DE VENTA</small><h2>Venta, instalación y configuración POS</h2></div></div>
+        <p class="service-lead">Un punto de venta debe hacer más sencillo cobrar y registrar la operación, no convertirse en otro problema que resolver.</p>
+        <div class="service-columns">
+          <div><h3>La solución puede incluir</h3><ul><li>Equipo de cómputo o terminal POS</li><li>Impresora de tickets</li><li>Lector de códigos de barras</li><li>Cajón de dinero</li><li>Configuración del software de punto de venta</li><li>Pruebas y puesta en operación</li></ul></div>
+          <div class="service-note"><strong>Primero evaluamos</strong><p>El tipo de negocio, volumen de operación y forma de trabajo. Cotizamos únicamente los componentes y configuración que tengan sentido para tu operación.</p></div>
+        </div>
+        <a class="button button-blue" href="/contacto">Cotizar punto de venta →</a>
+      </article>
+
+      <article class="service-detail" id="cctv" data-reveal>
+        <div class="service-head"><span>03</span><div><small>VIDEOVIGILANCIA</small><h2>Sistemas de CCTV</h2></div></div>
+        <p class="service-lead">Diseñamos una solución de videovigilancia alrededor de lo que necesitas observar: accesos, caja, almacén, áreas de trabajo o perímetro.</p>
+        <div class="service-columns">
+          <div><h3>Servicio disponible</h3><ul><li>Venta de cámaras y equipos compatibles</li><li>Instalación y cableado</li><li>Configuración de DVR/NVR</li><li>Grabación y revisión de cámaras</li><li>Acceso remoto desde celular cuando el sistema lo permita</li><li>Pruebas y orientación de uso</li></ul></div>
+          <div class="service-note"><strong>No instalamos a ciegas</strong><p>Antes de recomendar cantidad o tipo de cámaras revisamos qué áreas quieres cubrir y qué esperas del sistema. Una instalación útil comienza con una buena ubicación.</p></div>
+        </div>
+        <a class="button button-blue" href="/contacto">Solicitar cotización CCTV →</a>
+      </article>
+
+      <article class="service-detail web-detail" id="landing" data-reveal>
+        <div class="service-head"><span>04</span><div><small>PRESENCIA DIGITAL</small><h2>Landing page profesional</h2></div></div>
+        <div class="landing-price">Desde <strong>$2,000 MXN</strong></div>
+        <p class="service-lead">Una landing page es una página web enfocada en un objetivo concreto: presentar tu negocio y llevar al visitante a una acción como escribirte, llamar, pedir una cotización o conocer tu oferta.</p>
+        <div class="service-columns">
+          <div><h3>Incluye una base profesional</h3><ul><li>Diseño adaptado a tu identidad gráfica</li><li>Estructura clara y llamada a la acción</li><li>Adaptación a celular, tablet y computadora</li><li>Dominio y hosting dentro del alcance inicial acordado</li><li>SEO técnico básico</li><li>Publicación y revisión final</li></ul></div>
+          <div class="service-note"><strong>Tu marca sigue siendo tuya</strong><p>Colores, logo, tipografías, tono y personalidad se respetan y se traducen al diseño web. No imponemos una estética genérica sobre tu negocio.</p></div>
+        </div>
+        <a class="button button-blue" href="/contacto">Quiero mi landing page →</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="section support-band">
+    <div class="container support-layout" data-reveal>
+      <div><span class="eyebrow">Después de la entrega</span><h2>La implementación no termina cuando encendemos el equipo o publicamos la página.</h2></div>
+      <div class="support-copy"><p>Podemos darte acompañamiento posterior para ajustes, dudas o necesidades que aparezcan con el uso. En sitios web también puede contratarse una <strong>bolsa de soporte para cambios pequeños</strong>.</p><p>Cuando una solicitud implica un rediseño, nueva funcionalidad o cambio considerable, se cotiza de forma independiente para que el alcance y costo sean transparentes.</p></div>
     </div>
   </section>
 
   <section class="section dark-band">
     <div class="container">
-      <span class="eyebrow">Cómo trabajamos</span>
-      <h2>Un proceso simple, visible y profesional.</h2>
-      <div class="metrics"><div class="metric"><b>01</b><span>Brief y objetivos</span></div><div class="metric"><b>02</b><span>Estructura y diseño</span></div><div class="metric"><b>03</b><span>Desarrollo y revisión</span></div><div class="metric"><b>04</b><span>Publicación y entrega</span></div></div>
+      <span class="eyebrow">Nuestro proceso</span>
+      <h2>Entender → proponer → instalar → probar.</h2>
+      <div class="metrics">
+        <div class="metric"><b>01</b><span>Nos cuentas la necesidad</span></div>
+        <div class="metric"><b>02</b><span>Evaluamos el alcance</span></div>
+        <div class="metric"><b>03</b><span>Te presentamos una propuesta clara</span></div>
+        <div class="metric"><b>04</b><span>Implementamos y verificamos</span></div>
+      </div>
     </div>
   </section>
 
-  <section class="section"><div class="container"><div class="cta-panel" data-reveal><span class="eyebrow">Cotización</span><h2>No todos los negocios necesitan el mismo sitio.</h2><p class="lead">Cuéntanos qué vendes, a quién quieres llegar y qué necesitas lograr. Definimos contigo el alcance adecuado.</p><a class="button button-blue" href="/contacto">Cuéntanos tu proyecto →</a></div></div></section>
+  <section class="section"><div class="container"><div class="cta-panel" data-reveal><span class="eyebrow">¿No sabes qué pedir?</span><h2>Explícanos el problema en tus palabras.</h2><p class="lead">No necesitas conocer modelos, especificaciones o términos técnicos. Cuéntanos qué quieres lograr y partimos desde ahí.</p><a class="button button-blue" href="/contacto">Hablar sobre mi necesidad →</a></div></div></section>
 </Layout>
+
+<style>
+  .services-hero{padding-bottom:70px}.service-detail-grid{display:grid;gap:28px}.service-detail{padding:clamp(32px,5vw,58px);border:1px solid var(--line);border-radius:30px;background:#fff;box-shadow:0 16px 50px rgba(7,23,47,.05);scroll-margin-top:100px}.service-detail.dark-detail{background:linear-gradient(145deg,#081a35,#0b2b5d);border-color:#102e58;color:#fff}.service-detail.web-detail{background:linear-gradient(145deg,#fff,#eef5ff);border-color:#cadaf2}.service-head{display:flex;align-items:flex-start;gap:22px}.service-head>span{display:grid;place-items:center;width:54px;height:54px;flex:0 0 54px;border-radius:16px;background:#eef4ff;color:var(--blue);font-weight:900}.dark-detail .service-head>span{background:rgba(255,255,255,.09);color:#81b7ff}.service-head small{font-weight:900;letter-spacing:.13em;color:var(--blue)}.dark-detail .service-head small{color:#81b7ff}.service-head h2{margin:6px 0 0;font-size:clamp(2.4rem,4vw,4.3rem)}.service-lead{max-width:900px;margin:24px 0 30px;font-size:1.14rem;color:#526178}.dark-detail .service-lead{color:#bfccde}.service-columns{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;margin-bottom:28px}.service-columns h3{font-size:1rem;margin-bottom:14px}.service-columns ul{margin:0;padding-left:20px;display:grid;gap:8px;color:#536178}.dark-detail .service-columns ul{color:#c1cede}.service-note{padding:24px;border-radius:20px;background:#f1f6fc;border:1px solid #dfe8f3}.dark-detail .service-note{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12)}.service-note strong{display:block;color:var(--blue);margin-bottom:8px}.dark-detail .service-note strong{color:#81b7ff}.service-note p{margin:0;color:#5f6e82}.dark-detail .service-note p{color:#c1cede}.landing-price{display:inline-flex;margin:20px 0 0;padding:8px 13px;border-radius:999px;background:#dfeeff;color:#315173}.landing-price strong{color:#0b5ee7;margin-left:5px}.support-band{background:#edf2f8}.support-layout{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}.support-layout h2{font-size:clamp(2.2rem,4vw,4.1rem)}.support-copy{display:grid;gap:14px}.support-copy p{margin:0;padding:22px;border-radius:18px;background:#fff;border:1px solid var(--line);color:#5b697d}
+  @media(max-width:800px){.service-columns,.support-layout{grid-template-columns:1fr}.service-head{display:block}.service-head>span{margin-bottom:18px}}
+</style>
