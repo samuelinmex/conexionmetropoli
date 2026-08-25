@@ -1,212 +1,166 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Interactions from '../components/Interactions.astro';
-import { readFileSync } from 'node:fs';
-
-const fastTrackShot = readFileSync(new URL('../../public/assets/fasttrack-story.jpg.b64', import.meta.url), 'utf8').trim();
-const miArmarioShot = readFileSync(new URL('../../public/assets/miarmario-story.webp.b64', import.meta.url), 'utf8').trim();
 ---
-<Layout>
+
+<Layout
+  title="Conexión Metrópoli — Soluciones tecnológicas para negocios"
+  description="Mantenimiento de equipos de cómputo, puntos de venta, CCTV y landing pages para negocios. Instalación, configuración y acompañamiento profesional."
+>
   <Interactions />
-  <section class="hero">
+
+  <section class="hero tech-hero">
     <div class="container hero-grid">
       <div class="hero-copy">
-        <span class="eyebrow">Identidad digital con dirección</span>
-        <h1>Tu negocio merece verse <strong class="accent">tan profesional</strong> como realmente es.</h1>
-        <p class="lead">Diseñamos sitios web rápidos, elegantes y estratégicos que convierten una primera visita en confianza. Tu página deja de ser un requisito y se convierte en parte de tu crecimiento.</p>
+        <span class="eyebrow">Tecnología para negocios</span>
+        <h1>La tecnología de tu negocio debe <strong class="accent">resolver, proteger y ayudarte a vender.</strong></h1>
+        <p class="lead">En Conexión Metrópoli instalamos, configuramos y damos soporte a las herramientas que mantienen tu operación en marcha: computadoras, puntos de venta, videovigilancia y presencia web.</p>
         <div class="hero-actions">
-          <a class="button button-blue" href="/contacto">Quiero cotizar mi sitio <span>→</span></a>
-          <a class="button button-ghost" href="/proyectos">Ver proyectos</a>
+          <a class="button button-blue" href="/contacto">Necesito una solución <span>→</span></a>
+          <a class="button button-ghost" href="/servicios">Ver servicios</a>
         </div>
-        <div class="trust-row"><span>Diseño responsive</span><span>Enfoque en conversión</span><span>Entrega profesional</span></div>
+        <div class="trust-row">
+          <span>Atención clara</span>
+          <span>Soluciones adaptadas</span>
+          <span>Soporte posterior</span>
+        </div>
       </div>
-      <div class="hero-visual" aria-label="Vista conceptual de un sitio web moderno">
-        <div class="orb"><div class="orbit"></div></div>
-        <div class="browser-card">
-          <div class="browser-bar"><i></i><i></i><i></i></div>
-          <div class="browser-body">
-            <div class="browser-title"></div><div class="browser-line blue"></div><div class="browser-line"></div><div class="browser-line" style="width:68%"></div>
-            <div class="browser-grid"><span></span><span></span></div>
-          </div>
+
+      <div class="tech-console" aria-label="Áreas de servicio de Conexión Metrópoli">
+        <div class="console-top"><i></i><i></i><i></i><span>CONEXIÓN METRÓPOLI · SOPORTE PARA NEGOCIOS</span></div>
+        <div class="console-grid">
+          <div class="console-card"><b>01</b><strong>Equipos</strong><span>Mantenimiento y optimización</span></div>
+          <div class="console-card"><b>02</b><strong>Punto de venta</strong><span>Venta, instalación y configuración</span></div>
+          <div class="console-card"><b>03</b><strong>CCTV</strong><span>Seguridad y acceso remoto</span></div>
+          <div class="console-card"><b>04</b><strong>Web</strong><span>Landing pages desde $2,000 MXN</span></div>
         </div>
-        <div class="price-float"><small>Landing Esencial</small><b>desde $2,000</b><em> MXN · 3 secciones</em></div>
+        <div class="console-status"><span></span> Una sola conversación para entender qué necesita tu negocio.</div>
       </div>
     </div>
   </section>
 
   <section class="section dark-band">
     <div class="container" data-reveal>
-      <span class="eyebrow">Más que páginas bonitas</span>
-      <div class="section-head"><h2>Diseño que construye reputación antes de la primera llamada.</h2><p class="lead">Orden visual, velocidad, claridad y una experiencia pensada para que tu cliente entienda qué haces, por qué confiar en ti y cómo contactarte.</p></div>
-      <div class="metrics"><div class="metric"><b>2025</b><span>El inicio de nuestro recorrido</span></div><div class="metric"><b>100%</b><span>Enfoque responsive</span></div><div class="metric"><b>3</b><span>Secciones desde el plan inicial</span></div><div class="metric"><b>1:1</b><span>Atención durante tu proyecto</span></div></div>
+      <span class="eyebrow">Primero entendemos el problema</span>
+      <div class="section-head">
+        <h2>No se trata de venderte equipo. Se trata de que tu negocio funcione mejor.</h2>
+        <p class="lead">Revisamos la necesidad, proponemos una solución razonable y dejamos todo configurado para que puedas usarlo sin depender de explicaciones complicadas.</p>
+      </div>
+      <div class="metrics">
+        <div class="metric"><b>1:1</b><span>Atención personalizada</span></div>
+        <div class="metric"><b>4</b><span>Áreas principales de servicio</span></div>
+        <div class="metric"><b>360°</b><span>Instalación + configuración + soporte</span></div>
+        <div class="metric"><b>Claro</b><span>Alcances y costos antes de comenzar</span></div>
+      </div>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="servicios">
     <div class="container">
-      <div class="section-head" data-reveal><div><span class="eyebrow">Servicios</span><h2>Lo necesario para construir una presencia que inspire confianza.</h2></div><a class="button button-ghost" href="/servicios">Explorar servicios</a></div>
-      <div class="service-grid">
-        <article class="service-card price-card" data-reveal><span class="service-number">PLAN DE ENTRADA</span><h3>Landing Esencial</h3><div class="price-big">$2,000 <small>MXN desde</small></div><p>Tres secciones estratégicas: impacto inicial, propuesta/servicios y conversión. Ideal para comenzar con una presencia profesional sin complicar el proyecto.</p><a class="button button-blue" href="/contacto" style="margin-top:24px">Solicitar cotización →</a></article>
-        <article class="service-card" data-reveal><span class="service-number">01</span><h3>Sitios corporativos</h3><p>Arquitectura multipágina, contenido organizado y una experiencia coherente para presentar una empresa con mayor profundidad.</p></article>
-        <article class="service-card" data-reveal><span class="service-number">02</span><h3>Diseño UX/UI</h3><p>Jerarquía visual, navegación intuitiva y microinteracciones elegantes que hacen que la experiencia se sienta cuidada.</p></article>
-        <article class="service-card" data-reveal><span class="service-number">03</span><h3>Optimización web</h3><p>Buenas prácticas de rendimiento, SEO técnico básico, accesibilidad y adaptación para teléfonos, tablets y escritorio.</p></article>
-        <article class="service-card" data-reveal><span class="service-number">04</span><h3>Identidad digital</h3><p>Traducimos la personalidad de tu negocio a tipografía, color, tono visual y componentes que funcionan en la web.</p></article>
+      <div class="section-head" data-reveal>
+        <div>
+          <span class="eyebrow">Servicios</span>
+          <h2>Cuatro soluciones para problemas reales del día a día.</h2>
+        </div>
+        <a class="button button-ghost" href="/servicios">Conocer detalles</a>
+      </div>
+
+      <div class="solution-grid">
+        <article class="solution-card" data-reveal>
+          <span class="solution-number">01 · SOPORTE</span>
+          <div class="solution-icon">PC</div>
+          <h3>Mantenimiento de equipos de cómputo</h3>
+          <p>Diagnóstico, mantenimiento preventivo y correctivo, optimización, formateo, instalación de sistemas y solución de problemas de hardware o software.</p>
+          <a href="/contacto">Mi equipo necesita atención →</a>
+        </article>
+
+        <article class="solution-card featured" data-reveal>
+          <span class="solution-number">02 · OPERACIÓN</span>
+          <div class="solution-icon">POS</div>
+          <h3>Venta e instalación de puntos de venta</h3>
+          <p>Te ayudamos a implementar una solución para cobrar, registrar ventas y operar tu negocio con el equipo y software adecuados para tu forma de trabajar.</p>
+          <a href="/contacto">Quiero un punto de venta →</a>
+        </article>
+
+        <article class="solution-card" data-reveal>
+          <span class="solution-number">03 · SEGURIDAD</span>
+          <div class="solution-icon">CCTV</div>
+          <h3>Venta e instalación de sistemas CCTV</h3>
+          <p>Cámaras, grabación, configuración y acceso remoto desde celular. Diseñamos la instalación según las áreas que realmente necesitas supervisar.</p>
+          <a href="/contacto">Quiero proteger mi negocio →</a>
+        </article>
+
+        <article class="solution-card web-card" data-reveal>
+          <span class="solution-number">04 · PRESENCIA DIGITAL</span>
+          <div class="solution-icon">WEB</div>
+          <h3>Landing pages profesionales</h3>
+          <div class="mini-price">Desde <strong>$2,000 MXN</strong></div>
+          <p>Una página enfocada en presentar tu negocio, explicar tu oferta y llevar al visitante a una acción concreta: llamar, escribir, cotizar o visitar.</p>
+          <a href="/contacto">Quiero aparecer profesionalmente en internet →</a>
+        </article>
       </div>
     </div>
   </section>
 
-  <section class="stories-showcase" id="historias">
-    <div class="container stories-intro" data-reveal>
-      <div>
-        <span class="eyebrow">Historias que acompañamos</span>
-        <h2>Trabajo real. Negocios reales. Experiencias pensadas para moverlos hacia adelante.</h2>
-        <p class="lead">Dos marcas cancunenses lideradas por mujeres emprendedoras y dos formas distintas de convertir una página en una herramienta para conectar con sus clientes.</p>
+  <section class="section problem-section">
+    <div class="container">
+      <span class="eyebrow">¿Qué necesitas resolver?</span>
+      <h2 data-reveal>Empieza por el problema. Nosotros te ayudamos con la parte técnica.</h2>
+      <div class="problem-grid">
+        <a href="/contacto" data-reveal><small>MI COMPUTADORA</small><strong>Está lenta, falla o necesita mantenimiento.</strong><span>Revisar equipo →</span></a>
+        <a href="/contacto" data-reveal><small>MI NEGOCIO</small><strong>Necesita cobrar y controlar mejor sus ventas.</strong><span>Implementar POS →</span></a>
+        <a href="/contacto" data-reveal><small>MI SEGURIDAD</small><strong>Quiero ver qué sucede en mi negocio aunque no esté ahí.</strong><span>Instalar CCTV →</span></a>
+        <a href="/contacto" data-reveal><small>MIS CLIENTES</small><strong>Necesitan encontrarme y entender lo que ofrezco.</strong><span>Crear landing page →</span></a>
       </div>
-      <a class="button button-ghost" href="/proyectos">Conocer las historias</a>
     </div>
+  </section>
 
-    <div class="impact-carousel" data-story-carousel aria-roledescription="carrusel" aria-label="Historias de clientes de Conexión Metrópoli" tabindex="0">
-      <div class="impact-stage" aria-live="polite">
-        <article class="impact-slide is-active" data-story-slide aria-hidden="false">
-          <img class="impact-image" src={`data:image/jpeg;base64,${fastTrackShot}`} alt="Página de inicio de Fast Track English Coach" />
-          <div class="impact-shade"></div>
-          <div class="impact-topline">
-            <div class="impact-domain"><i></i><i></i><i></i><span>fasttrackenglishcoach.com</span></div>
-            <span class="impact-project">Proyecto real · Cancún</span>
-          </div>
-          <div class="container impact-content-wrap">
-            <div class="impact-copy">
-              <span class="impact-kicker">Educación · Experiencia + evaluación</span>
-              <h3>Fast Track<br/>English Coach</h3>
-              <p>Una página que ayuda a cada alumno a dar el primer paso con más claridad y confianza.</p>
-              <div class="impact-detail"><strong>La idea clave</strong><span>Integrar una evaluación en línea para convertir el sitio en parte del proceso de orientación, no solo en publicidad.</span></div>
-              <a class="impact-cta" href="/proyectos#fast-track">Conocer esta historia <span>↗</span></a>
-            </div>
-          </div>
-          <span class="impact-index">01 <small>/ 02</small></span>
-        </article>
-
-        <article class="impact-slide" data-story-slide aria-hidden="true">
-          <img class="impact-image" src={`data:image/webp;base64,${miArmarioShot}`} alt="Página de inicio de la tienda en línea Mi Armario Cancún" />
-          <div class="impact-shade"></div>
-          <div class="impact-topline">
-            <div class="impact-domain"><i></i><i></i><i></i><span>miarmariocancun.com</span></div>
-            <span class="impact-project">Proyecto real · Cancún</span>
-          </div>
-          <div class="container impact-content-wrap">
-            <div class="impact-copy">
-              <span class="impact-kicker">Moda · E-commerce</span>
-              <h3>Mi Armario<br/>Cancún</h3>
-              <p>Una tienda digital para que una colección completa pueda descubrirse más allá de una sola publicación.</p>
-              <div class="impact-detail"><strong>La idea clave</strong><span>Extender el escaparate de la marca a una experiencia de compra disponible desde cualquier lugar y dispositivo.</span></div>
-              <a class="impact-cta" href="/proyectos#mi-armario">Conocer esta historia <span>↗</span></a>
-            </div>
-          </div>
-          <span class="impact-index">02 <small>/ 02</small></span>
-        </article>
+  <section class="section process-section">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <div><span class="eyebrow">Cómo trabajamos</span><h2>De la necesidad a una solución lista para usar.</h2></div>
+        <p class="lead">Sin tecnicismos innecesarios. Te explicamos qué proponemos, por qué y qué recibirás.</p>
       </div>
-
-      <div class="impact-controls container" aria-label="Controles del carrusel">
-        <div class="impact-arrows">
-          <button type="button" data-carousel-prev aria-label="Historia anterior">←</button>
-          <button type="button" data-carousel-next aria-label="Historia siguiente">→</button>
-        </div>
-        <div class="impact-progress">
-          <button class="is-active" type="button" data-carousel-dot="0" aria-label="Ver Fast Track English Coach" aria-current="true"><span></span></button>
-          <button type="button" data-carousel-dot="1" aria-label="Ver Mi Armario Cancún"><span></span></button>
-        </div>
-        <span class="impact-hint">Desliza o usa las flechas</span>
+      <div class="process-grid">
+        <article><b>01</b><h3>Escuchamos</h3><p>Nos cuentas qué está pasando o qué quieres mejorar.</p></article>
+        <article><b>02</b><h3>Evaluamos</h3><p>Revisamos equipo, espacio, operación o alcance según el servicio.</p></article>
+        <article><b>03</b><h3>Proponemos</h3><p>Recibes una solución y un alcance entendible antes de autorizar.</p></article>
+        <article><b>04</b><h3>Implementamos</h3><p>Instalamos, configuramos, probamos y te explicamos cómo utilizarlo.</p></article>
       </div>
+    </div>
+  </section>
+
+  <section class="section dark-band web-proof">
+    <div class="container" data-reveal>
+      <span class="eyebrow">Experiencia digital comprobable</span>
+      <div class="section-head">
+        <h2>Ya hemos ayudado a negocios locales a convertir una necesidad en una experiencia web real.</h2>
+        <p class="lead">Fast Track English Coach y Mi Armario Cancún forman parte de nuestros proyectos documentados. Puedes conocer cómo abordamos cada necesidad en la sección de Proyectos.</p>
+      </div>
+      <a class="button button-blue" href="/proyectos">Ver proyectos realizados →</a>
     </div>
   </section>
 
   <section class="section">
-    <div class="container" data-reveal><div class="cta-panel"><span class="eyebrow">Tu siguiente paso</span><h2>Haz que tu negocio se vea como la opción que tus clientes estaban buscando.</h2><p class="lead">Cuéntanos qué quieres construir. Te responderemos con una propuesta clara según el alcance de tu proyecto.</p><a class="button button-blue" href="/contacto" style="margin-top:20px">Empezar mi proyecto →</a></div></div>
+    <div class="container" data-reveal>
+      <div class="cta-panel">
+        <span class="eyebrow">Hablemos de tu negocio</span>
+        <h2>No necesitas saber qué equipo comprar ni qué tecnología pedir.</h2>
+        <p class="lead">Cuéntanos qué quieres resolver y te ayudamos a aterrizar una opción clara, funcional y acorde a tu operación.</p>
+        <div class="cta-actions">
+          <a class="button button-blue" href="/contacto">Solicitar información →</a>
+          <a class="contact-direct" href="tel:+529982360116">998 236 0116</a>
+        </div>
+      </div>
+    </div>
   </section>
 </Layout>
 
 <style>
-  .stories-showcase{padding:92px 0 0;background:linear-gradient(180deg,#edf2f8 0%,#f5f8fc 100%);overflow:hidden}
-  .stories-intro{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:42px;align-items:end;padding-bottom:50px}
-  .stories-intro h2{max-width:930px;margin:9px 0 19px}.stories-intro .lead{max-width:790px;margin:0}
-  .impact-carousel{position:relative;width:100vw;margin-left:calc(50% - 50vw);outline:none;background:#071327;overflow:hidden}
-  .impact-stage{position:relative;height:clamp(620px,72vh,820px)}
-  .impact-slide{position:absolute;inset:0;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .62s cubic-bezier(.22,1,.36,1),visibility .62s;overflow:hidden;background:#071327}
-  .impact-slide.is-active{opacity:1;visibility:visible;pointer-events:auto;z-index:2}
-  .impact-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;transform:scale(1.055);filter:saturate(.93) contrast(1.02);transition:transform 7s cubic-bezier(.2,.65,.2,1),filter .6s ease}
-  .impact-slide.is-active .impact-image{transform:scale(1.005);filter:saturate(1) contrast(1.03)}
-  .impact-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,13,30,.90) 0%,rgba(3,13,30,.72) 28%,rgba(3,13,30,.28) 58%,rgba(3,13,30,.04) 78%),linear-gradient(0deg,rgba(3,13,30,.63) 0%,transparent 43%);z-index:1}
-  .impact-topline{position:absolute;top:0;left:0;right:0;height:56px;padding:0 clamp(22px,4vw,70px);display:flex;align-items:center;justify-content:space-between;z-index:3;color:rgba(255,255,255,.72);font-size:.72rem;border-bottom:1px solid rgba(255,255,255,.13);background:linear-gradient(180deg,rgba(4,14,31,.42),rgba(4,14,31,.06));backdrop-filter:blur(8px)}
-  .impact-domain{display:flex;align-items:center;gap:7px}.impact-domain i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.42)}.impact-domain span{margin-left:7px}.impact-project{text-transform:uppercase;letter-spacing:.13em;font-weight:850;color:#fff}
-  .impact-content-wrap{position:relative;height:100%;z-index:3;display:flex;align-items:flex-end;padding-top:100px;padding-bottom:82px}
-  .impact-copy{width:min(700px,72vw);color:#fff;transform:translateY(22px);opacity:0;transition:transform .65s .12s cubic-bezier(.22,1,.36,1),opacity .5s .12s ease}
-  .impact-slide.is-active .impact-copy{transform:translateY(0);opacity:1}
-  .impact-kicker{display:block;color:#67a2ff;font-size:.72rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase;margin-bottom:13px}
-  .impact-copy h3{font-size:clamp(3.6rem,7.8vw,7.5rem);line-height:.84;letter-spacing:-.065em;margin:0 0 22px;color:#fff;text-wrap:balance;text-shadow:0 12px 45px rgba(0,0,0,.28)}
-  .impact-copy>p{font-size:clamp(1.08rem,1.6vw,1.34rem);line-height:1.5;color:rgba(255,255,255,.88);max-width:630px;margin:0 0 22px}
-  .impact-detail{display:grid;grid-template-columns:auto minmax(0,1fr);gap:15px;align-items:start;max-width:660px;padding:15px 18px;border:1px solid rgba(255,255,255,.17);border-radius:16px;background:rgba(7,23,47,.42);backdrop-filter:blur(15px);margin-bottom:23px}.impact-detail strong{font-size:.66rem;color:#74aaff;text-transform:uppercase;letter-spacing:.11em;padding-top:3px}.impact-detail span{font-size:.88rem;line-height:1.45;color:rgba(255,255,255,.92);font-weight:650}
-  .impact-cta{display:inline-flex;align-items:center;gap:11px;padding:13px 18px;border-radius:999px;background:#fff;color:#07172f;font-size:.88rem;font-weight:850;box-shadow:0 14px 35px rgba(0,0,0,.18);transition:transform .2s,box-shadow .2s}.impact-cta:hover{transform:translateY(-2px);box-shadow:0 17px 40px rgba(0,0,0,.25)}.impact-cta span{color:#166fff}
-  .impact-index{position:absolute;right:clamp(23px,4vw,70px);bottom:80px;z-index:3;color:#fff;font-size:1.45rem;font-weight:900;letter-spacing:-.02em}.impact-index small{font-size:.72rem;color:rgba(255,255,255,.55);font-weight:650}
-  .impact-controls{height:74px;display:flex;align-items:center;gap:20px;position:relative;z-index:5;color:#fff}
-  .impact-arrows{display:flex;gap:8px}.impact-arrows button{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:#fff;font-size:1.05rem;cursor:pointer;transition:.2s}.impact-arrows button:hover{background:#fff;color:#07172f;transform:translateY(-2px)}
-  .impact-progress{display:flex;gap:7px}.impact-progress button{padding:9px 2px;border:0;background:transparent;cursor:pointer}.impact-progress span{display:block;width:35px;height:3px;border-radius:99px;background:rgba(255,255,255,.24);transition:width .35s,background .35s}.impact-progress button.is-active span{width:76px;background:#3d8cff}.impact-hint{margin-left:auto;color:rgba(255,255,255,.5);font-size:.72rem}
-  @media(max-width:900px){.stories-intro{grid-template-columns:1fr}.stories-intro .button{justify-self:start}.impact-stage{height:700px}.impact-shade{background:linear-gradient(0deg,rgba(3,13,30,.92) 0%,rgba(3,13,30,.72) 45%,rgba(3,13,30,.12) 78%)}.impact-content-wrap{align-items:flex-end;padding-bottom:55px}.impact-copy{width:100%}.impact-copy h3{font-size:clamp(3.3rem,12vw,6rem)}.impact-index{bottom:55px}.impact-detail{max-width:600px}}
-  @media(max-width:620px){.stories-showcase{padding-top:68px}.stories-intro{padding-bottom:35px}.impact-stage{height:660px}.impact-topline{height:48px;padding:0 16px}.impact-project{display:none}.impact-domain span{font-size:.66rem}.impact-content-wrap{padding:80px 20px 38px}.impact-copy h3{font-size:3.35rem}.impact-copy>p{font-size:1rem}.impact-detail{grid-template-columns:1fr;gap:5px;padding:13px 14px}.impact-index{top:66px;right:18px;bottom:auto}.impact-controls{height:66px;padding-left:20px;padding-right:20px}.impact-hint{display:none}.impact-progress button.is-active span{width:52px}.impact-image{object-position:top center}}
-  @media(prefers-reduced-motion:reduce){.impact-slide,.impact-image,.impact-copy,.impact-progress span{transition:none!important}}
+  .tech-hero{padding-top:70px}.tech-console{position:relative;min-height:520px;border:1px solid rgba(22,111,255,.16);border-radius:32px;background:linear-gradient(145deg,#081a35,#0d326b);box-shadow:0 35px 90px rgba(7,23,47,.20);overflow:hidden;color:#fff}.tech-console:before{content:"";position:absolute;width:360px;height:360px;border-radius:50%;background:#166fff;filter:blur(100px);opacity:.28;right:-100px;top:-110px}.console-top{height:62px;display:flex;align-items:center;gap:8px;padding:0 24px;border-bottom:1px solid rgba(255,255,255,.12);color:#9eb3d1;font-size:.7rem;letter-spacing:.11em}.console-top i{width:8px;height:8px;border-radius:50%;background:#7186a4}.console-top span{margin-left:10px}.console-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:28px}.console-card{min-height:160px;padding:22px;border:1px solid rgba(255,255,255,.13);border-radius:20px;background:rgba(255,255,255,.06);backdrop-filter:blur(12px);display:flex;flex-direction:column}.console-card b{color:#65a1ff;font-size:.72rem;letter-spacing:.12em}.console-card strong{font-size:1.3rem;margin:22px 0 5px}.console-card span{color:#adc0da;font-size:.88rem}.console-status{position:relative;z-index:1;margin:0 28px 28px;padding:13px 16px;border-radius:14px;background:rgba(0,0,0,.18);font-size:.82rem;color:#b9c9df}.console-status span{display:inline-block;width:8px;height:8px;border-radius:50%;background:#40d68a;margin-right:8px;box-shadow:0 0 0 5px rgba(64,214,138,.09)}
+  .solution-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.solution-card{position:relative;padding:34px;border:1px solid var(--line);border-radius:26px;background:#fff;overflow:hidden;transition:.3s}.solution-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:#c9d8ed}.solution-card.featured{background:linear-gradient(145deg,#081a35,#0b2b5d);color:#fff;border-color:#102f5a}.solution-card.featured p{color:#bbc9dc}.solution-card.web-card{background:linear-gradient(145deg,#f8fbff,#edf4ff);border-color:#cfe0f9}.solution-number{font-size:.72rem;font-weight:900;letter-spacing:.13em;color:var(--blue)}.solution-icon{width:58px;height:58px;border-radius:18px;margin:24px 0 22px;display:grid;place-items:center;background:#eef4ff;color:#0a59dd;font-weight:900;font-size:.78rem;border:1px solid #d8e6fb}.featured .solution-icon{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.13);color:#7fb6ff}.solution-card h3{font-size:1.7rem;margin-bottom:13px}.solution-card p{color:var(--muted)}.solution-card a{display:inline-block;margin-top:12px;color:var(--blue);font-weight:800}.featured a{color:#7db5ff}.mini-price{display:inline-flex;padding:6px 10px;border-radius:999px;background:#e4efff;color:#315173;font-size:.82rem;margin:-3px 0 12px}.mini-price strong{color:#0a59dd;margin-left:4px}
+  .problem-section{background:#edf2f8}.problem-section h2{max-width:860px}.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:42px}.problem-grid a{padding:28px;border-radius:22px;background:#fff;border:1px solid var(--line);display:flex;flex-direction:column;min-height:185px;transition:.25s}.problem-grid a:hover{transform:translateY(-4px);border-color:#bdd2f0;box-shadow:0 18px 45px rgba(7,23,47,.08)}.problem-grid small{color:var(--blue);font-weight:900;letter-spacing:.12em}.problem-grid strong{font-size:1.35rem;line-height:1.25;margin:18px 0 auto}.problem-grid span{margin-top:22px;color:#315173;font-size:.9rem;font-weight:800}
+  .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.process-grid article{padding:28px 24px;border-top:2px solid var(--blue);background:#fff;border-radius:0 0 20px 20px}.process-grid b{font-size:2rem;color:#d2def0}.process-grid h3{margin:20px 0 10px}.process-grid p{margin:0;color:var(--muted);font-size:.92rem}.web-proof .section-head{margin-bottom:28px}.cta-actions{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-top:24px}.contact-direct{color:#fff;font-weight:850;letter-spacing:.03em}
+  @media(max-width:900px){.tech-console{min-height:auto}.solution-grid,.problem-grid{grid-template-columns:1fr}.process-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:620px){.tech-hero{padding-top:35px}.console-grid{grid-template-columns:1fr;padding:18px}.console-card{min-height:130px}.console-status{margin:0 18px 18px}.solution-card{padding:27px 24px}.problem-grid{margin-top:28px}.process-grid{grid-template-columns:1fr}}
 </style>
-
-<script>
-  const carousel = document.querySelector('[data-story-carousel]');
-  if (carousel instanceof HTMLElement) {
-    const slides = [...carousel.querySelectorAll('[data-story-slide]')];
-    const dots = [...carousel.querySelectorAll('[data-carousel-dot]')];
-    const prev = carousel.querySelector('[data-carousel-prev]');
-    const next = carousel.querySelector('[data-carousel-next]');
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let current = 0;
-    let timer;
-    let startX = 0;
-    let paused = false;
-
-    const show = (index) => {
-      current = (index + slides.length) % slides.length;
-      slides.forEach((slide, i) => {
-        const active = i === current;
-        slide.classList.toggle('is-active', active);
-        slide.setAttribute('aria-hidden', active ? 'false' : 'true');
-      });
-      dots.forEach((dot, i) => {
-        const active = i === current;
-        dot.classList.toggle('is-active', active);
-        if (active) dot.setAttribute('aria-current', 'true');
-        else dot.removeAttribute('aria-current');
-      });
-    };
-
-    const stop = () => { if (timer) window.clearInterval(timer); };
-    const start = () => {
-      stop();
-      if (!reducedMotion && !paused) timer = window.setInterval(() => show(current + 1), 6500);
-    };
-    const move = (delta) => { show(current + delta); start(); };
-
-    prev?.addEventListener('click', () => move(-1));
-    next?.addEventListener('click', () => move(1));
-    dots.forEach((dot, i) => dot.addEventListener('click', () => { show(i); start(); }));
-    carousel.addEventListener('mouseenter', () => { paused = true; stop(); });
-    carousel.addEventListener('mouseleave', () => { paused = false; start(); });
-    carousel.addEventListener('focusin', () => { paused = true; stop(); });
-    carousel.addEventListener('focusout', () => { paused = false; start(); });
-    carousel.addEventListener('keydown', (event) => {
-      if (event.key === 'ArrowLeft') move(-1);
-      if (event.key === 'ArrowRight') move(1);
-    });
-    carousel.addEventListener('pointerdown', (event) => { startX = event.clientX; });
-    carousel.addEventListener('pointerup', (event) => {
-      const distance = event.clientX - startX;
-      if (Math.abs(distance) > 55) move(distance > 0 ? -1 : 1);
-    });
-    document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
-    start();
-  }
-</script>
